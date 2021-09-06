@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.selim.expensetracker.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.selim.expensetracker.onboarding.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.selim.expensetracker.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.selim.expensetracker.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verificationFragment"
+        android:name="com.selim.expensetracker.VerificationFragment"
+        android:label="fragment_verification"
+        tools:layout="@layout/fragment_verification" >
+        <action
+            android:id="@+id/action_verificationFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_verificationFragment_to_setupAccountFragment"
+            app:destination="@id/setupAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupAccountFragment"
+        android:name="com.selim.expensetracker.SetupAccountFragment"
+        android:label="fragment_setup_account"
+        tools:layout="@layout/fragment_setup_account" >
+        <action
+            android:id="@+id/action_setupAccountFragment_to_addNewAccountFragment"
+            app:destination="@id/addNewAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAccountFragment"
+        android:name="com.selim.expensetracker.AddNewAccountFragment"
+        android:label="fragment_add_new_account"
+        tools:layout="@layout/fragment_add_new_account" >
+        <action
+            android:id="@+id/action_addNewAccountFragment_to_setupAccountFragment"
+            app:destination="@id/setupAccountFragment" />
+        <action
+            android:id="@+id/action_addNewAccountFragment_to_signUpSuccessFragment"
+            app:destination="@id/signUpSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpSuccessFragment"
+        android:name="com.selim.expensetracker.SignUpSuccessFragment"
+        android:label="fragment_sign_up_success"
+        tools:layout="@layout/fragment_sign_up_success" />
+</navigation>
