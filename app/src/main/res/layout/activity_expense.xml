@@ -99,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
-            android:id="@+id/addAttachmentIncome"
+            android:id="@+id/addAttachmentExpense"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -137,8 +137,8 @@
             android:text="Repeat"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/addAttachmentIncome"
-            app:layout_constraintTop_toBottomOf="@+id/addAttachmentIncome" />
+            app:layout_constraintStart_toStartOf="@+id/addAttachmentExpense"
+            app:layout_constraintTop_toBottomOf="@+id/addAttachmentExpense" />
 
         <TextView
             android:id="@+id/textView23"

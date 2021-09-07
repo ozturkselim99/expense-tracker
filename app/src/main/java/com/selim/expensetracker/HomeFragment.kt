@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.SpinnerAdapter
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,43 +66,44 @@ class HomeFragment : Fragment() {
 
         today.setOnClickListener {
            today.setBackgroundResource(R.drawable.custom_textview)
-            today.setTextColor(resources.getColor(R.color.selectedTextTimeColor))
+            today.setTextColor(ContextCompat.getColor(requireContext(), R.color.selectedTextTimeColor))
             week.background=null
-            week.setTextColor(resources.getColor(R.color.textTimeColor))
+            week.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             month.background=null
-            month.setTextColor(resources.getColor(R.color.textTimeColor))
+            month.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             year.background=null
-            year.setTextColor(resources.getColor(R.color.textTimeColor))
+            year.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
         }
+
         week.setOnClickListener {
             week.setBackgroundResource(R.drawable.custom_textview)
-            week.setTextColor(resources.getColor(R.color.selectedTextTimeColor))
+            week.setTextColor(ContextCompat.getColor(requireContext(), R.color.selectedTextTimeColor))
             today.background=null
-            today.setTextColor(resources.getColor(R.color.textTimeColor))
+            today.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             month.background=null
-            month.setTextColor(resources.getColor(R.color.textTimeColor))
+            month.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             year.background=null
-            year.setTextColor(resources.getColor(R.color.textTimeColor))
+            year.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
         }
         month.setOnClickListener {
             month.setBackgroundResource(R.drawable.custom_textview)
-            month.setTextColor(resources.getColor(R.color.selectedTextTimeColor))
+            month.setTextColor(ContextCompat.getColor(requireContext(), R.color.selectedTextTimeColor))
             today.background=null
-            today.setTextColor(resources.getColor(R.color.textTimeColor))
+            today.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             week.background=null
-            week.setTextColor(resources.getColor(R.color.textTimeColor))
+            week.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             year.background=null
-            year.setTextColor(resources.getColor(R.color.textTimeColor))
+            year.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
         }
         year.setOnClickListener {
             year.setBackgroundResource(R.drawable.custom_textview)
-            year.setTextColor(resources.getColor(R.color.selectedTextTimeColor))
+            year.setTextColor(ContextCompat.getColor(requireContext(), R.color.selectedTextTimeColor))
             today.background=null
-            today.setTextColor(resources.getColor(R.color.textTimeColor))
+            today.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             month.background=null
-            month.setTextColor(resources.getColor(R.color.textTimeColor))
+            month.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
             week.background=null
-            week.setTextColor(resources.getColor(R.color.textTimeColor))
+            week.setTextColor(ContextCompat.getColor(requireContext(), R.color.textTimeColor))
         }
 
         return view
