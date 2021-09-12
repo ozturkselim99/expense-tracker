@@ -87,7 +87,7 @@
             tools:layout_editor_absoluteX="55dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/addExpenseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
