@@ -1,6 +1,7 @@
 package com.selim.expensetracker
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,8 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -33,6 +36,7 @@ class TransactionsFragment : Fragment() {
         val recyclerViewTransaction =  view.findViewById<RecyclerView>(R.id.transactions)
 
         val filterTransaction=view.findViewById<CardView>(R.id.filterTransaction)
+        val seeFinancialReport=view.findViewById<ConstraintLayout>(R.id.seeFinancialReport)
         val bottomSheetDialog= BottomSheetDialog(requireContext())
         val filterBottomModal=layoutInflater.inflate(R.layout.filter_bottom_sheet_modal,null)
         bottomSheetDialog.setContentView(filterBottomModal)
@@ -43,6 +47,11 @@ class TransactionsFragment : Fragment() {
       filterBottomModal.findViewById<Button>(R.id.filterTransactionApply).setOnClickListener {
           bottomSheetDialog.dismiss()
       }
+        seeFinancialReport.setOnClickListener {
+            val intent = Intent(requireContext(), FinancialReportActivity::class.java)
+            startActivity(intent)
+        }
+
 
         val months= arrayListOf<String>("January","February","March","April","May","June","July","August","September","October","November","December")
         val transactionList= arrayListOf<Transactions>(

@@ -27,15 +27,37 @@
             android:src="@drawable/ic_baseline_filter_list_24" />
     </androidx.cardview.widget.CardView>
 
-    <Spinner
-        android:id="@+id/spinnerMonthsTransactions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="135dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
+        android:background="@drawable/spinner_bg"
         app:layout_constraintBottom_toBottomOf="@+id/filterTransaction"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/filterTransaction" />
+        app:layout_constraintTop_toTopOf="@+id/filterTransaction">
 
+        <Spinner
+            android:id="@+id/spinnerMonthsTransactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:spinnerMode="dropdown" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+    </RelativeLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
         android:layout_width="match_parent"
@@ -50,6 +72,9 @@
         app:layout_constraintTop_toBottomOf="@+id/filterTransaction">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/seeFinancialReport"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/softViolett">
