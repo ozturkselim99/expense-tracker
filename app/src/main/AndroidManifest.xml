@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExpenseTracker">
-        <activity android:name=".FinancialReportActivity"></activity>
-        <activity android:name=".TransferActivity" />
-        <activity android:name=".ExpenseActivity" />
-        <activity android:name=".IncomeActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.FinancialReportActivity"></activity>
+        <activity android:name=".activities.TransferActivity" />
+        <activity android:name=".activities.ExpenseActivity" />
+        <activity android:name=".activities.IncomeActivity" />
+        <activity android:name=".activities.MainActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"
@@ -28,7 +28,7 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".IntroActivity">
+        <activity android:name=".activities.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

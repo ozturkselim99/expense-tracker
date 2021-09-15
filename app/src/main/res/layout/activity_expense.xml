@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/red"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    android:background="@color/red">
+
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
@@ -42,7 +42,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
 
         <EditText
             android:id="@+id/editTextTextPersonName3"
@@ -127,6 +126,7 @@
                 android:text="Add attachment"
                 android:textColor="#91919F"
                 android:textSize="18sp" />
+
         </LinearLayout>
 
         <TextView
@@ -157,11 +157,10 @@
             app:layout_constraintBottom_toBottomOf="@+id/textView23"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView22" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-
-        app:tint="@color/white"
         android:id="@+id/expenseBackButton"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -169,17 +168,19 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_baseline_keyboard_backspace_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <TextView
-        android:textSize="18sp"
-        android:textColor="@color/white"
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Expense"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/expenseBackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/expenseBackButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

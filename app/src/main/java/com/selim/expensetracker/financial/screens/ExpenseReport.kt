@@ -13,24 +13,19 @@ import com.selim.expensetracker.R
 
 class ExpenseReport : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_expense_report, container, false)
+        val view= inflater.inflate(R.layout.fragment_expense_report, container, false)
 
+        return view
     }
 
     override fun onResume() {
-        requireActivity().window.statusBarColor= ContextCompat.getColor(requireContext(), R.color.red)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.red)
         super.onResume()
     }
-
 
 }

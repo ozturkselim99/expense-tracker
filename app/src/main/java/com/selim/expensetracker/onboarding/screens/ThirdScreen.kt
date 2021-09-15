@@ -13,16 +13,12 @@ import com.selim.expensetracker.R
 
 class ThirdScreen : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_third_screen, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_third_screen, container, false)
 
         view.findViewById<TextView>(R.id.finish).setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_signUpFragment)
@@ -30,13 +26,13 @@ class ThirdScreen : Fragment() {
         }
 
         return view
+
     }
 
-    private fun onBoardingFinished()
-    {
-        val sharedPref=requireActivity().getSharedPreferences("onBoarding",Context.MODE_PRIVATE)
-        val editor=sharedPref.edit()
-        editor.putBoolean("Finished",true)
+    private fun onBoardingFinished() {
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("Finished", true)
         editor.apply()
     }
 

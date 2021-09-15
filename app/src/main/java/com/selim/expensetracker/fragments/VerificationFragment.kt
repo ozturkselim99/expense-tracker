@@ -1,4 +1,4 @@
-package com.selim.expensetracker
+package com.selim.expensetracker.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,30 +8,27 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
+import com.selim.expensetracker.R
 
 class VerificationFragment : Fragment() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_verification, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_verification, container, false)
 
         view.findViewById<ImageView>(R.id.backToSignUpFromVerification).setOnClickListener {
             findNavController().navigate(R.id.action_verificationFragment_to_signUpFragment)
         }
-
         view.findViewById<Button>(R.id.verifyButton).setOnClickListener {
             findNavController().navigate(R.id.action_verificationFragment_to_setupAccountFragment)
         }
 
         return view
+
     }
 
 

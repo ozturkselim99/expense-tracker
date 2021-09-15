@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SetupAccountFragment"
     android:padding="16dp"
-    >
-
+    tools:context=".fragments.SetupAccountFragment">
 
     <TextView
         android:id="@+id/textView16"
@@ -21,25 +19,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="Account can be your bank, credit card or your wallet."
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
-        android:textAllCaps="false"
         android:id="@+id/letsGoButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
         android:text="Let’s go"
+        android:textAllCaps="false"
         android:textSize="18sp"
         app:backgroundTint="@null"
-        android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

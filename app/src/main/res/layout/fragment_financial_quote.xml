@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/violett"
     android:layout_height="match_parent"
+    android:background="@color/violett"
     tools:context=".financial.screens.ExpenseReport">
-
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -24,7 +23,7 @@
             android:layout_height="5dp"
             android:layout_marginRight="2.5dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent"/>
+            android:background="#80000000" />
 
         <View
             android:id="@+id/view3"
@@ -32,7 +31,7 @@
             android:layout_height="5dp"
             android:layout_marginRight="2.5dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent" />
+            android:background="#80000000" />
 
         <View
             android:id="@+id/view4"
@@ -40,7 +39,7 @@
             android:layout_height="5dp"
             android:layout_marginRight="2.5dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent" />
+            android:background="#80000000" />
 
         <View
             android:id="@+id/view1"
@@ -48,25 +47,24 @@
             android:layout_height="5dp"
             android:layout_weight="1"
             android:background="@color/white" />
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView47"
-        android:textColor="@color/white"
-        android:textSize="32sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="16dp"
         android:text="“Financial freedom is freedom from fear.”"
+        android:textColor="@color/white"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <TextView
-        android:textColor="@color/white"
-        android:textSize="24sp"
         android:id="@+id/textView48"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,29 +72,30 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="-Robert Kiyosaki"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <Button
-        android:foreground="?android:attr/selectableItemBackground"
-        app:backgroundTint="@null"
-        android:background="@drawable/custom_button_white"
-        android:textAllCaps="false"
-        android:textColor="@color/violett"
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_white"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="See the full detail"
+        android:textAllCaps="false"
+        android:textColor="@color/violett"
         android:textSize="18sp"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48"
         app:layout_constraintVertical_bias="1.0" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

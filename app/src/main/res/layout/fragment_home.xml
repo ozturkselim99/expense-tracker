@@ -5,7 +5,7 @@
     android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -31,12 +31,13 @@
                 android:id="@+id/spinnerMonths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:spinnerMode="dropdown" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,6 +112,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_baseline_arrow_downward_24" />
+
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -132,7 +134,9 @@
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="@+id/textView27"
                         app:layout_constraintTop_toBottomOf="@+id/textView27"></TextView>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -230,11 +234,11 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <TextView
-            android:background="@drawable/custom_textview"
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_textview"
             android:clickable="true"
             android:gravity="center"
             android:paddingVertical="8dp"
@@ -277,26 +281,26 @@
 
     <TextView
         android:id="@+id/textView35"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Recent Transaction"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
-        android:clickable="true"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="16dp"
-        android:textColor="@color/violett"
-        android:background="@drawable/see_all"
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/see_all"
+        android:clickable="true"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
         android:text="See All"
+        android:textColor="@color/violett"
         app:layout_constraintBottom_toBottomOf="@+id/textView35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView35" />

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.selim.expensetracker.SplashFragment"
+        android:name="com.selim.expensetracker.fragments.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.selim.expensetracker.onboarding.ViewPagerFragment"
+        android:name="com.selim.expensetracker.onboarding.OnboardingViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.selim.expensetracker.SignUpFragment"
+        android:name="com.selim.expensetracker.fragments.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.selim.expensetracker.LoginFragment"
+        android:name="com.selim.expensetracker.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificationFragment"
-        android:name="com.selim.expensetracker.VerificationFragment"
+        android:name="com.selim.expensetracker.fragments.VerificationFragment"
         android:label="fragment_verification"
         tools:layout="@layout/fragment_verification" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/setupAccountFragment"
-        android:name="com.selim.expensetracker.SetupAccountFragment"
+        android:name="com.selim.expensetracker.fragments.SetupAccountFragment"
         android:label="fragment_setup_account"
         tools:layout="@layout/fragment_setup_account" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNewAccountFragment"
-        android:name="com.selim.expensetracker.AddNewAccountFragment"
+        android:name="com.selim.expensetracker.fragments.AddNewAccountFragment"
         android:label="fragment_add_new_account"
         tools:layout="@layout/fragment_add_new_account" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpSuccessFragment"
-        android:name="com.selim.expensetracker.SignUpSuccessFragment"
+        android:name="com.selim.expensetracker.fragments.SignUpSuccessFragment"
         android:label="fragment_sign_up_success"
         tools:layout="@layout/fragment_sign_up_success" />
 </navigation>

@@ -1,8 +1,6 @@
-package com.selim.expensetracker
+package com.selim.expensetracker.activities
 
 import android.app.Dialog
-import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -12,20 +10,23 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.selim.expensetracker.R
 
 class ExpenseActivity : AppCompatActivity() {
+
     private val expenseBackButton by lazy { findViewById<ImageView>(R.id.expenseBackButton) }
     private val addAttachmentExpense by lazy { findViewById<LinearLayout>(R.id.addAttachmentExpense) }
     private val addExpenseButton by lazy { findViewById<Button>(R.id.addExpenseButton) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expense)
-        val bottomSheetDialog= BottomSheetDialog(this)
-        val view=layoutInflater.inflate(R.layout.bottom_sheet_modal,null)
-        var dialog= Dialog(this)
 
+        val bottomSheetDialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_modal, null)
+        var dialog = Dialog(this)
         bottomSheetDialog.setContentView(view)
+
         addAttachmentExpense.setOnClickListener {
             bottomSheetDialog.show()
         }
@@ -36,13 +37,12 @@ class ExpenseActivity : AppCompatActivity() {
                 dialog.dismiss()
                 onBackPressed()
                 finish()
-            },1500)
+            }, 1500)
         }
-
-        window.statusBarColor = ContextCompat.getColor(this, R.color.red)
         expenseBackButton.setOnClickListener {
             onBackPressed()
             finish()
         }
+        window.statusBarColor = ContextCompat.getColor(this, R.color.red)
     }
 }

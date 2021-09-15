@@ -11,19 +11,17 @@ import com.selim.expensetracker.R
 
 class IncomeReport : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        requireActivity().window.statusBarColor= ContextCompat.getColor(requireContext(), R.color.green)
+
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
+
         return inflater.inflate(R.layout.fragment_income_report, container, false)
+
     }
 
     override fun onResume() {
-        requireActivity().window.statusBarColor= ContextCompat.getColor(requireContext(), R.color.green)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
         super.onResume()
     }
 

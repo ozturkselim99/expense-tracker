@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.selim.expensetracker.HomeFragment"
+        android:name="com.selim.expensetracker.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/transactionsFragment"
-        android:name="com.selim.expensetracker.TransactionsFragment"
+        android:name="com.selim.expensetracker.fragments.TransactionsFragment"
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
     <fragment android:id="@+id/placeholder2" />
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.selim.expensetracker.ProfileFragment"
+        android:name="com.selim.expensetracker.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

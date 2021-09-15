@@ -5,84 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".LoginFragment">
-
+    tools:context=".fragments.LoginFragment">
 
     <ImageView
-        app:tint="@color/black"
         android:id="@+id/backToSignUp"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:src="@drawable/ic_baseline_keyboard_backspace_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
 
     <TextView
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/backToSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backToSignUp" />
 
     <EditText
-        android:background="@drawable/custom_input"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp"
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:background="@drawable/custom_input"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backToSignUp" />
 
     <EditText
-        android:background="@drawable/custom_input"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp"
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPassword"
+        android:background="@drawable/custom_input"
         android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+        android:ems="10"
         android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
-        android:foreground="?android:attr/selectableItemBackground"
-        app:backgroundTint="@null"
-        android:background="@drawable/custom_button"
-        android:textAllCaps="false"
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Login"
+        android:textAllCaps="false"
         android:textSize="18sp"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
 
     <TextView
-        android:textSize="18sp"
-        android:textColor="@color/violett"
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="Forgot Password?"
+        android:textColor="@color/violett"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -95,19 +94,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11">
+
         <TextView
-            android:textSize="16sp"
-            android:text="Don’t have an account yet? "
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account yet? "
+            android:textSize="16sp"></TextView>
 
         <TextView
             android:id="@+id/signUpGuide"
-            android:textColor="@color/violett"
-            android:textSize="16sp"
-            android:text="@string/SignUp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="@string/SignUp"
+            android:textColor="@color/violett"
+            android:textSize="16sp"></TextView>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
