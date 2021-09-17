@@ -20,12 +20,11 @@ class ExpenseReport : Fragment() {
 
         val view= inflater.inflate(R.layout.fragment_expense_report, container, false)
 
+
+
         return view
     }
 
-    override fun onResume() {
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.red)
-        super.onResume()
-    }
+
 
 }

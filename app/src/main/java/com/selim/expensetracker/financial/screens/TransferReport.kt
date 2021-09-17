@@ -22,9 +22,4 @@ class TransferReport : Fragment() {
 
     }
 
-    override fun onResume() {
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue)
-        super.onResume()
-    }
-
 }

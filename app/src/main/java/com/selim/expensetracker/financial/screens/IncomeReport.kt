@@ -14,15 +14,9 @@ class IncomeReport : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
-
         return inflater.inflate(R.layout.fragment_income_report, container, false)
 
     }
 
-    override fun onResume() {
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
-        super.onResume()
-    }
 
 }
