@@ -1,5 +1,6 @@
 package com.selim.expensetracker.data
 
+import com.selim.expensetracker.models.Budget
 import com.selim.expensetracker.models.Transactions
 
 object MockData {
@@ -11,6 +12,7 @@ object MockData {
     )
     private val months = arrayListOf("January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December")
+    private val budgets= arrayListOf(Budget("Shopping","1000"))
 
 
     fun getTransactions(): ArrayList<Transactions> {
@@ -18,5 +20,9 @@ object MockData {
     }
     fun getMonths(): ArrayList<String> {
         return months
+    }
+    fun getBudgets():ArrayList<Budget>
+    {
+        return budgets
     }
 }
