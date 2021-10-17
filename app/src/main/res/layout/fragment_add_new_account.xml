@@ -33,27 +33,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/custom_card"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:hint="Account Name"
-            android:inputType="textPersonName"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/addNewAccountContinueButton"
@@ -61,6 +47,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
             android:text="Continue"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:textAllCaps="false"
             android:textSize="18sp"
             app:backgroundTint="@null"
@@ -69,19 +56,82 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/custom_input"
             android:ems="10"
-            android:hint="Goal"
+            android:hint="Account Name"
             android:inputType="textPersonName"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:textSize="18sp"
+            android:textColorHint="#91919F"
+            app:layout_constraintBottom_toTopOf="@+id/bankFilterContainer2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/bankFilterContainer2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:endIconTint="#91919F"
+            app:layout_constraintBottom_toTopOf="@+id/bankFilterContainer"
+            tools:layout_editor_absoluteX="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/bankFilterSpinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="1"
+                android:paddingVertical="8dp"
+                android:singleLine="true"
+                android:text="Account Type"
+                android:textAlignment="viewStart"
+                android:textColor="#91919F"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/bankFilterContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:endIconTint="#91919F"
+            app:layout_constraintBottom_toTopOf="@+id/addNewAccountContinueButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/bankFilterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="1"
+                android:paddingVertical="8dp"
+                android:singleLine="true"
+                android:text="Banks"
+                android:textAlignment="viewStart"
+                android:textColor="#91919F"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

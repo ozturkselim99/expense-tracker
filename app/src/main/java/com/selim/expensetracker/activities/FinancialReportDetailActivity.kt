@@ -2,6 +2,7 @@ package com.selim.expensetracker.activities
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,7 @@ import org.eazegraph.lib.models.ValueLineSeries
 
 class FinancialReportDetailActivity : AppCompatActivity() {
 
-    private val spinnerMonthsFinancialReport by lazy { findViewById<Spinner>(R.id.spinnerMonthsFinancialReport) }
+    private val spinnerMonthsFinancialReport by lazy { findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner) }
     /*
     private val pieChart by lazy { findViewById<PieChart>(R.id.pieChart) }
     private val lineChart by lazy { findViewById<ValueLineChart>(R.id.lineChart) }
@@ -46,10 +47,11 @@ class FinancialReportDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_financial_report_detail)
 
-        val spinnerAdapter =
-            ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
+        val spinnerMonths = spinnerMonthsFinancialReport.findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner)
 
-        spinnerMonthsFinancialReport.adapter = spinnerAdapter
+        val spinnerAdapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
+
+        spinnerMonths.setAdapter(spinnerAdapter)
         financialReportBackButton.setOnClickListener {
             onBackPressed()
         }

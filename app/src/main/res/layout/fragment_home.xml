@@ -10,76 +10,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/home_gradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="135dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/spinner_bg"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateFilterContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:boxCornerRadiusBottomEnd="40dp"
+            app:boxCornerRadiusBottomStart="40dp"
+            app:boxCornerRadiusTopEnd="40dp"
+            app:boxCornerRadiusTopStart="40dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:endIconTint="@color/violett"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <Spinner
-                android:id="@+id/spinnerMonths"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:spinnerMode="dropdown" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Account Balance"
-            android:textColor="#91919F"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="$9400"
-            android:textColor="@color/black"
-            android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView24"
-            app:layout_constraintStart_toStartOf="@+id/textView24"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            <AutoCompleteTextView
+                android:id="@+id/datesFilterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="1"
+                android:paddingVertical="8dp"
+                android:singleLine="true"
+                android:text="Months"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:paddingHorizontal="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25">
+            app:layout_constraintTop_toBottomOf="@+id/textView78">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="160dp"
@@ -111,7 +90,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_arrow_downward_24" />
+                            android:src="@drawable/income_logo" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -168,7 +147,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_arrow_upward_24" />
+                            android:src="@drawable/expense_logo" />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -197,98 +176,73 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Account Balance"
+            android:textColor="#91919F"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/dateFilterContainer"
+            app:layout_constraintStart_toStartOf="@+id/dateFilterContainer"
+            app:layout_constraintTop_toBottomOf="@+id/dateFilterContainer" />
+
+        <TextView
+            android:id="@+id/textView78"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="$9400"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView24"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/profilePicture"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:src="@drawable/profile_picture"
             app:civ_border_color="@color/violett"
             app:civ_border_width="1dp"
-
-            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+            app:layout_constraintBottom_toBottomOf="@+id/dateFilterContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dateFilterContainer"
+            app:layout_constraintVertical_bias="0.25" />
 
         <ImageView
-            android:id="@+id/imageView13"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/notifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/ic_baseline_notifications_24"
-            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+            app:layout_constraintBottom_toBottomOf="@+id/dateFilterContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dateFilterContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/custom_textview"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="Today"
-            android:textColor="@color/selectedTextTimeColor" />
-
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="Week"
-            android:textColor="@color/textTimeColor" />
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="Month"
-            android:textColor="@color/textTimeColor" />
-
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="Year"
-            android:textColor="@color/textTimeColor" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Recent Transaction"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup4" />
 
     <TextView
         android:id="@+id/textView36"
@@ -312,6 +266,50 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36"
-        tools:layout_editor_absoluteX="158dp" />
+       />
+
+    <com.google.android.material.chip.ChipGroup
+        app:singleSelection="true"
+        android:id="@+id/chipGroup4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <com.google.android.material.chip.Chip
+            android:checked="true"
+            style="@style/CustomChipChoice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            app:chipEndPadding="16dp"
+            app:chipStartPadding="16dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipChoice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Week"
+            app:chipEndPadding="16dp"
+            app:chipStartPadding="16dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipChoice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month"
+            app:chipEndPadding="16dp"
+            app:chipStartPadding="16dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/CustomChipChoice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            app:chipEndPadding="16dp"
+            app:chipStartPadding="16dp" />
+
+    </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

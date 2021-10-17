@@ -11,7 +11,7 @@
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="64dp"
         android:text="Let’s setup your account!"
         android:textColor="@color/black"
         android:textSize="36sp"
@@ -22,13 +22,16 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         android:text="Account can be your bank, credit card or your wallet."
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:id="@+id/letsGoButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

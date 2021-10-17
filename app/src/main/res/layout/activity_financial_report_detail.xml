@@ -28,36 +28,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/financialReportBackButton" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/spinner_bg"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateFilterContainer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusBottomEnd="40dp"
+        app:boxCornerRadiusBottomStart="40dp"
+        app:boxCornerRadiusTopEnd="40dp"
+        app:boxCornerRadiusTopStart="40dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:endIconTint="@color/violett"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49">
+        app:layout_constraintTop_toBottomOf="@+id/financialReportBackButton">
 
-        <Spinner
-            android:id="@+id/spinnerMonthsFinancialReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:spinnerMode="dropdown" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-
-    </RelativeLayout>
+        <AutoCompleteTextView
+            android:id="@+id/datesFilterSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ellipsize="end"
+            android:inputType="none"
+            android:maxLines="1"
+            android:paddingVertical="8dp"
+            android:singleLine="true"
+            android:text="Months"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.cardview.widget.CardView
@@ -66,9 +68,9 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="6dp"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/dateFilterContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout">
+        app:layout_constraintTop_toTopOf="@+id/dateFilterContainer">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,9 +123,9 @@
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
         app:tabIconTint="@color/tab_icon_color"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/dateFilterContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout">
+        app:layout_constraintTop_toTopOf="@+id/dateFilterContainer">
 
 
     </com.google.android.material.tabs.TabLayout>
@@ -135,7 +137,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/dateFilterContainer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

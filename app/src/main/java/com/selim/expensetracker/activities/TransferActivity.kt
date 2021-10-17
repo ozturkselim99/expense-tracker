@@ -22,7 +22,9 @@ class TransferActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer)
 
-        val bottomSheetDialog=BottomSheetDialog(this)
+
+
+        val bottomSheetDialog=BottomSheetDialog(this,R.style.AttachmentBottomSheetDialogTheme)
         val view=layoutInflater.inflate(R.layout.bottom_sheet_modal,null)
         var dialog=Dialog(this)
         bottomSheetDialog.setContentView(view)

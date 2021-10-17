@@ -21,7 +21,7 @@ class ThirdScreen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_third_screen, container, false)
 
         view.findViewById<TextView>(R.id.finish).setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_signUpFragment)
+            findNavController().navigate(R.id.action_viewPagerFragment_to_loginFragment)
             onBoardingFinished()
         }
 

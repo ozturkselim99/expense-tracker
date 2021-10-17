@@ -38,31 +38,46 @@
         android:background="@drawable/custom_card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputLayout
 
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/bankFilterContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:hint="Category"
-            android:inputType="textPersonName"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:endIconTint="#91919F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/bankFilterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="1"
+                android:paddingVertical="8dp"
+                android:singleLine="true"
+                android:text="Category"
+                android:textAlignment="viewStart"
+                android:textColor="#91919F"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:textSize="16sp"
-            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
             android:id="@+id/textView64"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Receive Alert"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/bankFilterContainer"
+            app:layout_constraintTop_toBottomOf="@+id/bankFilterContainer" />
 
         <TextView
             android:id="@+id/textView65"
@@ -89,7 +104,7 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/custom_button"
             android:text="Add"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:textAllCaps="false"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"

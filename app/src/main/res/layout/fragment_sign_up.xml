@@ -88,9 +88,9 @@
         android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/custom_button"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -120,7 +120,7 @@
         android:layout_weight="1"
         android:background="@drawable/google_sign_in_btn"
         android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:gravity="center"
         android:orientation="horizontal"
         app:backgroundTint="@null"
@@ -160,6 +160,9 @@
             android:textSize="16sp"></TextView>
 
         <TextView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:id="@+id/loginGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

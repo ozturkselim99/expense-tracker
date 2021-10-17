@@ -17,4 +17,25 @@
         <item name="chipBackgroundColor">@color/chip_bg_color</item>
         <item name="android:textColor">@color/chip_text_color</item>
     </style>
+    <style name="CustomChipChoice2" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/chip_bg_color2</item>
+        <item name="android:textColor">@color/chip_text_color2</item>
+    </style>
+
+    <style name="AttachmentBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AttachmentModalStyle</item>
+    </style>
+
+    <style name="AttachmentModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/custom_card</item>
+    </style>
+
+    <style name="FilterBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/FilterModalStyle</item>
+    </style>
+
+    <style name="FilterModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/custom_filter_card</item>
+    </style>
+
 </resources>

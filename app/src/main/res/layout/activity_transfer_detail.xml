@@ -217,7 +217,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/custom_button"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:text="Edit"
         android:textAllCaps="false"
         android:textSize="18sp"

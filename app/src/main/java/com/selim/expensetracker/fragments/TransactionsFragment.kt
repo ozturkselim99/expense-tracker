@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Spinner
 import androidx.cardview.widget.CardView
@@ -34,7 +35,7 @@ class TransactionsFragment : Fragment() {
         val filterTransaction = view.findViewById<CardView>(R.id.filterTransaction)
         val seeFinancialReport = view.findViewById<ConstraintLayout>(R.id.seeFinancialReport)
 
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetDialog = BottomSheetDialog(requireContext(),R.style.FilterBottomSheetDialogTheme)
         val filterBottomModal = layoutInflater.inflate(R.layout.filter_bottom_sheet_modal, null)
         bottomSheetDialog.setContentView(filterBottomModal)
 
@@ -48,12 +49,11 @@ class TransactionsFragment : Fragment() {
             val intent = Intent(requireContext(), FinancialReportActivity::class.java)
             startActivity(intent)
         }
-
-        val spinnerMonths = view.findViewById<Spinner>(R.id.spinnerMonthsTransactions)
+        val spinnerMonths = view.findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner)
 
         val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
 
-        spinnerMonths.adapter = spinnerAdapter
+        spinnerMonths.setAdapter(spinnerAdapter)
 
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerViewTransaction.layoutManager = layoutManager

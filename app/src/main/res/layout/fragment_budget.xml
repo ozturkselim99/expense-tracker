@@ -72,7 +72,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/custom_button"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:text="Create a budget"
             android:textAllCaps="false"
             android:textSize="18sp"

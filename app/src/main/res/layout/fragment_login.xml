@@ -32,7 +32,7 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="Email"
@@ -63,9 +63,9 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/custom_button"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:text="Login"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -75,11 +75,15 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
 
     <TextView
+        android:clickable="true"
+        android:focusable="true"
+
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         android:text="Forgot Password?"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:textColor="@color/violett"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +93,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,6 +106,9 @@
             android:textSize="16sp"></TextView>
 
         <TextView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:id="@+id/signUpGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
