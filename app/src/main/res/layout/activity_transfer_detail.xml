@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:padding="16dp"
         android:layout_height="240dp"
-        android:background="@color/blue"
+        android:background="@color/blue_100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
@@ -26,6 +26,9 @@
             app:layout_constraintTop_toTopOf="@+id/expenseTransactionDetailBackButton" />
 
         <ImageView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/transferTransactionDetailBackButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
@@ -35,6 +38,9 @@
             app:tint="@color/white" />
 
         <ImageView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/imageView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -159,7 +165,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Description"
-        android:textColor="#91919F"
+        android:textColor="@color/light_20"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +193,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Attachment"
-        android:textColor="#91919F"
+        android:textColor="@color/light_20"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

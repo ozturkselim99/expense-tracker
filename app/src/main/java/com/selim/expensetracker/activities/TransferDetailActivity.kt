@@ -11,7 +11,7 @@ class TransferDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer_detail)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.blue)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_100)
         transferTransactionDetailBackButton.setOnClickListener {
             onBackPressed()
         }

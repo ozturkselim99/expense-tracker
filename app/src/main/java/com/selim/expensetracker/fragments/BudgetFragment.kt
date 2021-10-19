@@ -40,7 +40,7 @@ class BudgetFragment : Fragment() {
         val adapter = BudgetAdapter(MockData.getBudgets())
         recyclerViewBudgets.adapter = adapter
 
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.violett)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.violet_100)
         currentMonth(view)
 
         view.findViewById<ImageView>(R.id.nextMonth).setOnClickListener {

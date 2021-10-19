@@ -43,6 +43,6 @@ class ExpenseActivity : AppCompatActivity() {
             onBackPressed()
             finish()
         }
-        window.statusBarColor = ContextCompat.getColor(this, R.color.red)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.red_100)
     }
 }

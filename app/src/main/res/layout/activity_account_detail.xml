@@ -11,7 +11,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#F1F1FA"
+        android:backgroundTint="@color/light_60"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="@+id/textView79"
@@ -25,6 +25,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/dateFilterContainer"
@@ -36,7 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_filter_list_24" />
+            android:src="@drawable/ic_baseline_filter_list_24"
+            app:tint="@color/black" />
 
     </androidx.cardview.widget.CardView>
 
@@ -54,7 +56,7 @@
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-        app:endIconTint="@color/violett"
+        app:endIconTint="@color/violet_100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView81">
 
@@ -62,7 +64,7 @@
             android:id="@+id/datesFilterSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
+            android:backgroundTint="@color/light_60"
             android:ellipsize="end"
             android:inputType="none"
             android:maxLines="1"
@@ -101,6 +103,9 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/accountDetailBackButton"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -129,6 +134,9 @@
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_edit_24"

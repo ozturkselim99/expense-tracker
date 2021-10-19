@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExpenseTracker">
-        <activity android:name=".activities.NotificationActivity"></activity>
-        <activity android:name=".activities.AccountDetailActivity"></activity>
+        <activity android:name=".activities.ExportDataSuccessActivity"></activity>
+        <activity android:name=".activities.ExportDataActivity" />
+        <activity android:name=".activities.NotificationActivity" />
+        <activity android:name=".activities.AccountDetailActivity" />
         <activity android:name=".activities.AccountActivity" />
         <activity android:name=".activities.BudgetDetailActivity" />
         <activity android:name=".activities.CreateBudgetActivity" />

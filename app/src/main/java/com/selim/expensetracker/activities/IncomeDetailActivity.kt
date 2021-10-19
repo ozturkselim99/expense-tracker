@@ -11,7 +11,7 @@ class IncomeDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_income_detail)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.green)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.green_100)
         incomeTransactionDetailBackButton.setOnClickListener {
             onBackPressed()
         }

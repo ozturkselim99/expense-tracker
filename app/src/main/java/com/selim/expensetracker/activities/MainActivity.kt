@@ -3,8 +3,10 @@ package com.selim.expensetracker.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -25,26 +27,26 @@ class MainActivity : AppCompatActivity() {
 
     private val rotateOpen: Animation by lazy {
         AnimationUtils.loadAnimation(
-                this,
-                R.anim.rotate_open_anim
+            this,
+            R.anim.rotate_open_anim
         )
     }
     private val rotateClose: Animation by lazy {
         AnimationUtils.loadAnimation(
-                this,
-                R.anim.rotate_close_anim
+            this,
+            R.anim.rotate_close_anim
         )
     }
     private val fromBottom: Animation by lazy {
         AnimationUtils.loadAnimation(
-                this,
-                R.anim.from_bottom_anim
+            this,
+            R.anim.from_bottom_anim
         )
     }
     private val toBottom: Animation by lazy {
         AnimationUtils.loadAnimation(
-                this,
-                R.anim.to_bottom_anim
+            this,
+            R.anim.to_bottom_anim
         )
     }
 
@@ -54,13 +56,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.softYellow)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_20)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment2)
         bottomNavigationView.setupWithNavController(navController)
         bottomNavigationView.background = null
         bottomNavigationView.menu.getItem(2).isEnabled = false
+
 
         fabAdd.setOnClickListener {
             onAddButtonClicked()

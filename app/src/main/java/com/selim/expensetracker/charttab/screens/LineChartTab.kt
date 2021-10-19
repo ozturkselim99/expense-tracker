@@ -24,7 +24,7 @@ class LineChartTab : Fragment() {
         var lineChart=view.findViewById<ValueLineChart>(R.id.lineChart)
 
         var series= ValueLineSeries()
-        series.color = ContextCompat.getColor(requireContext(),R.color.softViolett)
+        series.color = ContextCompat.getColor(requireContext(),R.color.violet_20)
         series.addPoint(ValueLinePoint("Jan", 2.4f))
         series.addPoint(ValueLinePoint("Feb", 3.4f))
         series.addPoint(ValueLinePoint("Mar", .4f))

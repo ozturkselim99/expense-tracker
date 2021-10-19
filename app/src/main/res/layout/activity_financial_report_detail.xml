@@ -8,6 +8,9 @@
     tools:context=".activities.FinancialReportDetailActivity">
 
     <ImageView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/financialReportBackButton"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -40,7 +43,7 @@
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-        app:endIconTint="@color/violett"
+        app:endIconTint="@color/violet_100"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/financialReportBackButton">
@@ -56,6 +59,7 @@
             android:paddingVertical="8dp"
             android:singleLine="true"
             android:text="Months"
+            android:backgroundTint="@color/light_60"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="14sp" />
@@ -87,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tabChartViewPager"
         app:tabGravity="fill"
         app:tabIndicator="@drawable/custom_tab_indicator"
-        app:tabIndicatorColor="@color/violett"
+        app:tabIndicatorColor="@color/violet_100"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"
         app:tabInlineLabel="true"
@@ -115,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/violett"
+        app:tabIndicatorColor="@color/violet_100"
         app:tabIndicator="@drawable/custom_tab_indicator"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"

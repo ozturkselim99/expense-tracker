@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green">
+    android:background="@color/green_100">
 
     <TextView
         android:id="@+id/textView19"
@@ -50,6 +50,7 @@
             android:background="@drawable/custom_input"
             android:ems="10"
             android:hint="Description"
+            android:textColorHint="@color/light_20"
             android:inputType="textPersonName"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
@@ -83,7 +84,7 @@
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-            app:endIconTint="#91919F"
+            app:endIconTint="@color/light_20"
             app:layout_constraintBottom_toTopOf="@+id/addNewAccountContinueButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +101,7 @@
                 android:singleLine="true"
                 android:text="Wallet"
                 android:textAlignment="viewStart"
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,7 +114,7 @@
             android:layout_weight="1"
             android:background="@drawable/attachment_btn"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/actionBarItemBackground"
             android:gravity="center"
             android:orientation="horizontal"
             app:backgroundTint="@null"
@@ -131,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add attachment"
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -152,12 +153,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Repeat transaction"
-            android:textColor="#91919F"
+            android:textColor="@color/light_20"
             app:layout_constraintStart_toStartOf="@+id/textView22"
             app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
         <Switch
-            android:trackTint="@color/violett"
+            android:trackTint="@color/violet_100"
             android:thumbTint="@color/white"
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
@@ -177,7 +178,7 @@
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-            app:endIconTint="#91919F"
+            app:endIconTint="@color/light_20"
             app:layout_constraintBottom_toTopOf="@+id/addNewAccountContinueButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,13 +195,16 @@
                 android:singleLine="true"
                 android:text="Category"
                 android:textAlignment="viewStart"
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/incomeBackButton"
         android:layout_width="32dp"
         android:layout_height="32dp"

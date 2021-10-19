@@ -8,6 +8,9 @@
     tools:context=".fragments.SignUpFragment">
 
     <ImageView
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:id="@+id/imageView7"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -78,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:buttonTint="@color/violett"
+        android:buttonTint="@color/violet_100"
         android:text="@string/PrivacyPolicy"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Login"
-            android:textColor="@color/violett"
+            android:textColor="@color/violet_100"
             android:textSize="16sp"></TextView>
 
     </LinearLayout>

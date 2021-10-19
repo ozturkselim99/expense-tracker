@@ -16,6 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.selim.expensetracker.R
 import com.selim.expensetracker.activities.AccountActivity
 import com.selim.expensetracker.activities.CreateBudgetActivity
+import com.selim.expensetracker.activities.ExportDataActivity
 import com.selim.expensetracker.activities.NotificationActivity
 
 
@@ -37,6 +38,11 @@ class ProfileFragment : Fragment() {
 
         view.findViewById<LinearLayout>(R.id.logout).setOnClickListener {
             bottomSheetDialog.show()
+        }
+
+        view.findViewById<LinearLayout>(R.id.exportData).setOnClickListener {
+            val intent= Intent(requireContext(), ExportDataActivity::class.java)
+            startActivity(intent)
         }
         bottomSheetDialogView.findViewById<Button>(R.id.logoutNoButton).setOnClickListener {
             bottomSheetDialog.dismiss()

@@ -45,6 +45,6 @@ class TransferActivity : AppCompatActivity() {
             onBackPressed()
             finish()
         }
-        window.statusBarColor = ContextCompat.getColor(this, R.color.blue)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_100)
     }
 }

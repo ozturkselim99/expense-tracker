@@ -43,6 +43,6 @@ class IncomeActivity : AppCompatActivity() {
             onBackPressed()
             finish()
         }
-        window.statusBarColor = ContextCompat.getColor(this, R.color.green)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.green_100)
     }
 }

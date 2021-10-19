@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView50"
-        app:strokeColor="#F1F1FA"
+        app:strokeColor="@color/light_60"
         app:strokeWidth="1dp">
 
         <ImageView

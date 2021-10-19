@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/violett"
+    android:background="@color/violet_100"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.BudgetFragment">
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/prevMonth" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:backgroundTint="#FCFCFC"
+        android:backgroundTint="@color/light_80"
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -87,7 +87,7 @@
         android:gravity="center"
         android:id="@+id/textView61"
         android:textSize="16sp"
-        android:textColor="#91919F"
+        android:textColor="@color/light_20"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="You don’t have a budget. Let’s make one so you in control."

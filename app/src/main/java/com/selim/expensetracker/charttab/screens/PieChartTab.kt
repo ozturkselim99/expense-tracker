@@ -32,7 +32,7 @@ class PieChartTab : Fragment() {
             PieModel(
                 "Subcription", 80f, ContextCompat.getColor(
                     requireContext(),
-                    R.color.violett
+                    R.color.violet_100
                 )
             )
         )
@@ -40,7 +40,7 @@ class PieChartTab : Fragment() {
             PieModel(
                 "Food",
                 32f,
-                ContextCompat.getColor(requireContext(), R.color.red)
+                ContextCompat.getColor(requireContext(), R.color.red_100)
             )
         )
         pieChart.startAnimation()

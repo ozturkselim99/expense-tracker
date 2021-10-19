@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.ExpenseTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/violett</item>
-        <item name="colorPrimaryVariant">@color/violett</item>
+        <item name="colorPrimary">@color/violet_100</item>
+        <item name="colorPrimaryVariant">@color/violet_100</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

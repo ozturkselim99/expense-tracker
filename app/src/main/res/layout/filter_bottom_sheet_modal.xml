@@ -10,7 +10,7 @@
         android:id="@+id/view"
         android:layout_width="36dp"
         android:layout_height="4dp"
-        android:background="@color/softViolett"
+        android:background="@color/violet_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,11 +32,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/see_all"
         android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:focusable="true"
+        android:foreground="?android:attr/actionBarItemBackground"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         android:text="Reset"
-        android:textColor="@color/violett"
+        android:textColor="@color/violet_100"
         app:layout_constraintBottom_toBottomOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView26" />
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Income"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -75,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Expense"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -83,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Transfer"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
     </com.google.android.material.chip.ChipGroup>
@@ -113,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Highest"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -121,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lowest"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -129,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Newest"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -137,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Oldest"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
     </com.google.android.material.chip.ChipGroup>
@@ -184,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medical"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -192,7 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shop"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -200,7 +201,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Car"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -208,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Education"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
         <com.google.android.material.chip.Chip
@@ -216,7 +217,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Food"
-            app:chipStrokeColor="#E3E5E5"
+            app:chipStrokeColor="@color/light_40"
             app:chipStrokeWidth="1dp" />
 
     </com.google.android.material.chip.ChipGroup>

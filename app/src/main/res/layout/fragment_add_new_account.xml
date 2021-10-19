@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/violett"
+    android:background="@color/violet_100"
     tools:context=".fragments.AddNewAccountFragment">
 
     <ImageView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:id="@+id/backToSetupAccount"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -66,7 +69,7 @@
             android:inputType="textPersonName"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:textColorHint="#91919F"
+            android:textColorHint="@color/light_20"
             app:layout_constraintBottom_toTopOf="@+id/bankFilterContainer2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +86,7 @@
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-            app:endIconTint="#91919F"
+            app:endIconTint="@color/light_20"
             app:layout_constraintBottom_toTopOf="@+id/bankFilterContainer"
             tools:layout_editor_absoluteX="16dp">
 
@@ -98,7 +101,7 @@
                 android:singleLine="true"
                 android:text="Account Type"
                 android:textAlignment="viewStart"
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,7 +116,7 @@
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-            app:endIconTint="#91919F"
+            app:endIconTint="@color/light_20"
             app:layout_constraintBottom_toTopOf="@+id/addNewAccountContinueButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">

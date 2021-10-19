@@ -26,7 +26,7 @@
 
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="100dp"
-                android:backgroundTint="@color/red"
+                android:backgroundTint="@color/red_100"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="@+id/materialCardView2"
@@ -51,20 +51,20 @@
                 app:cardElevation="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="#F1F1FA"
+                app:strokeColor="@color/light_60"
                 app:strokeWidth="1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FCFCFC">
+                    android:background="@color/light_80">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardView8"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@color/selectedTextTimeColor"
+                        android:backgroundTint="@color/yellow_100"
                         app:cardCornerRadius="100dp"
                         app:cardElevation="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,16 +106,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:progress="100"
-                app:indicatorColor="@color/selectedTextTimeColor"
+                app:indicatorColor="@color/yellow_100"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView66"
-                app:trackColor="#F1F1FA"
+                app:trackColor="@color/light_60"
                 app:trackCornerRadius="32dp"
                 app:trackThickness="12dp" />
 
             <TextView
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:textSize="16sp"
                 android:id="@+id/textView67"
                 android:layout_width="wrap_content"
@@ -131,12 +131,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="You’ve exceed the limit! "
-                android:textColor="@color/red"
+                android:textColor="@color/red_100"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
             <TextView
-                android:textColor="#91919F"
+                android:textColor="@color/light_20"
                 android:id="@+id/budgetLimit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
