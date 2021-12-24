@@ -1,5 +1,6 @@
 package com.selim.expensetracker.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,27 +8,69 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.selim.expensetracker.R
+import com.selim.expensetracker.activities.MainActivity
+import com.selim.expensetracker.databinding.FragmentLoginBinding
+import com.selim.expensetracker.databinding.FragmentSignUpBinding
+import com.selim.expensetracker.utils.FirebaseUtils.firebaseAuth
 
 
 class LoginFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    private var binding: FragmentLoginBinding? = null
 
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        view.findViewById<ImageView>(R.id.backToSignUp).setOnClickListener {
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding!!.lifecycleOwner = this
+
+        if (firebaseAuth.currentUser!=null && firebaseAuth.currentUser!!.isEmailVerified){
+            startActivity(Intent(requireContext(),MainActivity::class.java))
+            activity?.onBackPressed();
+        }
+
+        binding!!.backToSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
 
-        view.findViewById<TextView>(R.id.signUpGuide).setOnClickListener {
+        binding!!.signUpGuide.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
+        binding!!.signInButton.setOnClickListener {
+            if (binding!!.signInTextPersonMail.text.toString()
+                    .isNotEmpty() && binding!!.signInTextPersonPassword.text.toString().isNotEmpty()
+            ) {
+                login(
+                    binding!!.signInTextPersonMail.text.toString(),
+                    binding!!.signInTextPersonPassword.text.toString()
+                )
+            }
+        }
+        return binding!!.root
 
-        return view
+    }
 
+    private fun login(email: String, password: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(), "Login succes.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(requireContext(),MainActivity::class.java))
+                } else {
+                    Toast.makeText(
+                        requireContext(), "enter all fields.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
@@ -25,7 +26,7 @@ class TransactionAdapter(val transactionsList: ArrayList<Transactions>) : Recycl
         private val trDescription = itemView.findViewById<TextView>(R.id.trDescription)
         private val trHistory = itemView.findViewById<TextView>(R.id.trHistory)
         private val trExpense = itemView.findViewById<TextView>(R.id.trExpense)
-        private val transactionItemRow = itemView.findViewById<ConstraintLayout>(R.id.transactionItemRow)
+        private val transactionItemRow = itemView.findViewById<CardView>(R.id.transactionItemRow)
 
         fun bind(transaction: Transactions) {
             trTitle.text = transaction.title
@@ -33,7 +34,7 @@ class TransactionAdapter(val transactionsList: ArrayList<Transactions>) : Recycl
             trHistory.text = transaction.history
             trExpense.text = transaction.expense
             transactionItemRow.setOnClickListener {
-                val intent = Intent(itemView.context, TransferDetailActivity::class.java)
+                val intent = Intent(itemView.context, ExpenseDetailActivity::class.java)
                itemView.context.startActivity(intent)
             }
         }

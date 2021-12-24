@@ -17,14 +17,17 @@ class AccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
 
+        setupRecyclerview()
+
+        accountBackButton.setOnClickListener {
+            onBackPressed()
+        }
+    }
+    private fun setupRecyclerview() {
         val layoutManager = LinearLayoutManager(this)
         recyclerViewAccounts.layoutManager = layoutManager
 
         val adapter = AccountsAdapter(MockData.getAccounts())
         recyclerViewAccounts.adapter = adapter
-
-        accountBackButton.setOnClickListener {
-            onBackPressed()
-        }
     }
 }

@@ -12,10 +12,11 @@ import com.selim.expensetracker.R
 class CreateBudgetActivity : AppCompatActivity() {
     private val createBudgetBackButton by lazy { findViewById<ImageView>(R.id.createBudgetBackButton) }
     private val addBudget by lazy { findViewById<Button>(R.id.addBudget) }
+    private lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_budget)
-        var dialog= Dialog(this)
+        dialog= Dialog(this)
 
         createBudgetBackButton.setOnClickListener {
             onBackPressed()

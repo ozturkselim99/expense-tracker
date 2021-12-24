@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "720955028231",
+    "project_id": "expense-tracker-de546",
+    "storage_bucket": "expense-tracker-de546.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720955028231:android:0948cc6b6b1fd4612fcba2",
+        "android_client_info": {
+          "package_name": "com.selim.expensetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720955028231-qkdpiuchgbifojgkb35ilemrfvmfaaee.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.selim.expensetracker",
+            "certificate_hash": "1745ccc7fbe547cb8171c8674d8311f9bd42e556"
+          }
+        },
+        {
+          "client_id": "720955028231-tq655deogghvvvf51k02bagk26u8ro0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDff_MQ-GnwXSJQIGiVkFlwemd-hOkf550"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720955028231-tq655deogghvvvf51k02bagk26u8ro0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

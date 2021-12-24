@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.selim.expensetracker.R
 import com.selim.expensetracker.activities.CreateBudgetActivity
+import com.selim.expensetracker.adapters.AccountsAdapter
 import com.selim.expensetracker.adapters.BudgetAdapter
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
@@ -33,12 +34,8 @@ class BudgetFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_budget, container, false)
-        val recyclerViewBudgets = view.findViewById<RecyclerView>(R.id.budgetsRW)
-        val layoutManager = LinearLayoutManager(requireContext())
-        recyclerViewBudgets.layoutManager = layoutManager
 
-        val adapter = BudgetAdapter(MockData.getBudgets())
-        recyclerViewBudgets.adapter = adapter
+        setupRecyclerview(view)
 
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.violet_100)
         currentMonth(view)
@@ -70,7 +67,13 @@ class BudgetFragment : Fragment() {
     {
         view.findViewById<TextView>(R.id.budgetMonth).text=cal?.getDisplayName(Calendar.MONTH,Calendar.SHORT,Locale.ENGLISH)
     }
+    private fun setupRecyclerview(view:View) {
+        val layoutManager = LinearLayoutManager(requireContext())
+        view.findViewById<RecyclerView>(R.id.budgetsRW).layoutManager = layoutManager
 
+        val adapter = BudgetAdapter(MockData.getBudgets())
+        view.findViewById<RecyclerView>(R.id.budgetsRW).adapter = adapter
+    }
 
 
 }

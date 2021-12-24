@@ -31,7 +31,6 @@ class TransactionsFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_transactions, container, false)
 
-        val recyclerViewTransaction = view.findViewById<RecyclerView>(R.id.transactions)
         val filterTransaction = view.findViewById<CardView>(R.id.filterTransaction)
         val seeFinancialReport = view.findViewById<ConstraintLayout>(R.id.seeFinancialReport)
 
@@ -49,20 +48,22 @@ class TransactionsFragment : Fragment() {
             val intent = Intent(requireContext(), FinancialReportActivity::class.java)
             startActivity(intent)
         }
-        val spinnerMonths = view.findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner)
-
-        val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
-
-        spinnerMonths.setAdapter(spinnerAdapter)
-
-        val layoutManager = LinearLayoutManager(requireContext())
-        recyclerViewTransaction.layoutManager = layoutManager
-
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        recyclerViewTransaction.adapter = adapter
-
+        setupRecyclerview(view)
+        setupSpinner(view)
 
         return view
+    }
+    private fun setupRecyclerview(view:View) {
+        val layoutManager = LinearLayoutManager(requireContext())
+        view.findViewById<RecyclerView>(R.id.transactions).layoutManager = layoutManager
+
+        val adapter = TransactionAdapter(MockData.getTransactions())
+        view.findViewById<RecyclerView>(R.id.transactions).adapter = adapter
+    }
+
+    private fun setupSpinner(view:View){
+        val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
+        view.findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner).setAdapter(spinnerAdapter)
     }
 
 

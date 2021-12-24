@@ -1,4 +1,4 @@
-package com.selim.expensetracker.charttab.screens
+package com.selim.expensetracker.chart_tab.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.selim.expensetracker.R
 import org.eazegraph.lib.charts.PieChart
-import org.eazegraph.lib.charts.ValueLineChart
 import org.eazegraph.lib.models.PieModel
 
 

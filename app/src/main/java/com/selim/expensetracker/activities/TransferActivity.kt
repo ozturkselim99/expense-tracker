@@ -9,30 +9,33 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.selim.expensetracker.R
+import com.selim.expensetracker.databinding.ActivityExpenseBinding
+import com.selim.expensetracker.databinding.ActivityTransferBinding
 
 class TransferActivity : AppCompatActivity() {
 
-    private val transferBackButton by lazy { findViewById<ImageView>(R.id.transferBackButton) }
-    private val addAttachmentTransfer by lazy { findViewById<LinearLayout>(R.id.addAttachmentTransfer) }
-    private val addTransferButton by lazy { findViewById<Button>(R.id.addTransferButton) }
+    private lateinit var dialog: Dialog
+    private lateinit var bottomSheetDialog:BottomSheetDialog
+    private var binding: ActivityTransferBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer)
 
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_transfer)
 
+        bottomSheetDialog=BottomSheetDialog(this,R.style.AttachmentBottomSheetDialogTheme)
+        dialog=Dialog(this)
 
-        val bottomSheetDialog=BottomSheetDialog(this,R.style.AttachmentBottomSheetDialogTheme)
-        val view=layoutInflater.inflate(R.layout.bottom_sheet_modal,null)
-        var dialog=Dialog(this)
-        bottomSheetDialog.setContentView(view)
+        setupBottomSheet()
 
-        addAttachmentTransfer.setOnClickListener {
+        binding!!.addAttachmentTransfer.setOnClickListener {
             bottomSheetDialog.show()
         }
-        addTransferButton.setOnClickListener {
+        binding!!.addTransferButton.setOnClickListener {
             dialog.setContentView(R.layout.transaction_unsuccessfully_dialog)
             dialog.show()
             Handler(Looper.getMainLooper()).postDelayed({
@@ -41,10 +44,15 @@ class TransferActivity : AppCompatActivity() {
                 finish()
             },1500)
         }
-        transferBackButton.setOnClickListener {
+        binding!!.transferBackButton.setOnClickListener {
             onBackPressed()
             finish()
         }
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_100)
     }
+    private fun setupBottomSheet(){
+        val view=layoutInflater.inflate(R.layout.bottom_sheet_modal,null)
+        bottomSheetDialog.setContentView(view)
+    }
+
 }

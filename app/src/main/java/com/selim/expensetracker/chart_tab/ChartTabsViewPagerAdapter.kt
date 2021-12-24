@@ -1,4 +1,4 @@
-package com.selim.expensetracker.charttab
+package com.selim.expensetracker.chart_tab
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
