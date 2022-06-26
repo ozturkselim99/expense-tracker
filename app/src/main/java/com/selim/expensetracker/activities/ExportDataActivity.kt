@@ -1,26 +1,25 @@
 package com.selim.expensetracker.activities
 
 import android.content.Intent
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import com.selim.expensetracker.R
+import androidx.appcompat.app.AppCompatActivity
+import com.selim.expensetracker.databinding.ActivityExportDataBinding
 
 class ExportDataActivity : AppCompatActivity() {
-
-    private val exportDataBackButton by lazy { findViewById<ImageView>(R.id.exportDataBackButton) }
-    private val exportDataButton by lazy { findViewById<Button>(R.id.exportDataButton) }
+    private lateinit var binding: ActivityExportDataBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_export_data)
+        binding = ActivityExportDataBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initViews()
+    }
 
-        exportDataBackButton.setOnClickListener {
+    private fun initViews() {
+        binding.exportDataBackButton.setOnClickListener {
             onBackPressed()
         }
-        exportDataButton.setOnClickListener {
-            val intent=Intent(this,ExportDataSuccessActivity::class.java)
+        binding.exportDataButton.setOnClickListener {
+            val intent = Intent(this, ExportDataSuccessActivity::class.java)
             startActivity(intent)
         }
     }

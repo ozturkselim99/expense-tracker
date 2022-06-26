@@ -1,56 +1,83 @@
 package com.selim.expensetracker.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.firestore.QuerySnapshot
 import com.selim.expensetracker.R
+import com.selim.expensetracker.activities.ExpenseDetailActivity
+import com.selim.expensetracker.activities.IncomeDetailActivity
 import com.selim.expensetracker.activities.NotificationActivity
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
 import com.selim.expensetracker.databinding.FragmentHomeBinding
+import com.selim.expensetracker.models.Transactions
 import com.selim.expensetracker.utils.FirebaseUtils.firebaseAuth
 import com.selim.expensetracker.utils.FirebaseUtils.firebaseFirestore
+import com.selim.expensetracker.utils.showToastShort
 
 
 class HomeFragment : Fragment() {
 
-    private var binding: FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    private val adapter = TransactionAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding!!.lifecycleOwner = this
-
-
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        adapter.onItemClicked = { it ->
+            val intent = when (it.transactionType) {
+                "Income" -> {
+                    Intent(requireContext(), IncomeDetailActivity::class.java)
+                }
+                "Expense" ->{
+                    Intent(requireContext(), ExpenseDetailActivity::class.java)
+                }
+                //TODO:farkli aktivite oluşturulacak
+                else->{
+                    Intent(requireContext(), ExpenseDetailActivity::class.java)
+                }
+            }
+            intent.putExtra("transactionId", it.transactionId)
+            startActivity(intent)
+        }
         setupRecyclerview()
         setupSpinner()
         getAccountInfo()
+        initViews()
+        return binding.root
+    }
 
-        binding!!.notifications.setOnClickListener {
+    override fun onStart() {
+        getAccountInfo()
+        getRecentTransaction()
+        super.onStart()
+    }
+
+    private fun initViews() {
+        binding.notifications.setOnClickListener {
             val intent = Intent(requireContext(), NotificationActivity::class.java)
             startActivity(intent)
         }
-        return binding!!.root
     }
 
     private fun setupRecyclerview() {
         val layoutManager = LinearLayoutManager(requireContext())
-        binding!!.transactionRW.layoutManager = layoutManager
+        binding.transactionRW.layoutManager = layoutManager
+    }
 
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        binding!!.transactionRW.adapter = adapter
+    private fun loadTransactions(transactions: List<Transactions>) {
+        adapter.items=transactions
+        binding.transactionRW.adapter = adapter
     }
 
     private fun setupSpinner() {
@@ -60,7 +87,7 @@ class HomeFragment : Fragment() {
             MockData.getMonths()
         )
 
-        binding!!.datesFilterSpinner.setAdapter(spinnerAdapter)
+        binding.datesFilterSpinner.setAdapter(spinnerAdapter)
     }
 
     private fun getAccountInfo() {
@@ -68,16 +95,39 @@ class HomeFragment : Fragment() {
             firebaseFirestore?.collection("Users")?.document(it)
                 ?.get()
                 ?.addOnSuccessListener { document ->
-                    binding!!.accountBalanceText.text = document.get("accountBalance").toString()
+                    binding.accountBalanceText.text = document.get("accountBalance").toString()+"$"
                 }
                 ?.addOnFailureListener { exception ->
-                    Toast.makeText(
-                        requireContext(), "$exception",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToastShort("$exception")
                 }
         }
     }
 
-
+    private fun getRecentTransaction() {
+        firebaseAuth.currentUser?.uid?.let {
+            firebaseFirestore?.collection("Users")?.document(it)
+                ?.collection("Transactions")?.get()
+                ?.addOnSuccessListener { result ->
+                    var transactions = mutableListOf<Transactions>()
+                    for (document in result) {
+                        transactions.add(
+                            Transactions(
+                                document.id,
+                                document.data["selectedCategory"].toString(),
+                                document.data["description"].toString(),
+                                document.data["createdAt"].toString(),
+                                document.data["amount"].toString() + "$",
+                                document.data["transactionType"].toString(),
+                                document.data["imageUrl"].toString(),
+                                document.data["selectedBank"].toString(),
+                            )
+                        )
+                    }
+                    loadTransactions(transactions)
+                }
+                ?.addOnFailureListener { exception ->
+                    showToastShort("$exception")
+                }
+        }
+    }
 }

@@ -1,239 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/red_100">
 
-    <data>
+<TextView
+    android:id="@+id/textView19"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:text="How Much"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimals"
+    app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimals" />
 
-    </data>
+<EditText
+    android:id="@+id/editTextNumberDecimals"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp"
+    android:background="@null"
+    android:ems="10"
+    android:inputType="numberDecimal"
+    android:hint="$00.0"
+    android:textColorHint="@color/white"
+    android:textColor="@color/white"
+    android:textSize="64sp"
+    app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+    app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_card"
+    android:padding="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <EditText
+        android:id="@+id/expenseDescriptionEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/red_100">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/light_20"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankFilterContainer" />
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="How Much"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimals"
-            app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimals" />
+    <Button
+        android:id="@+id/addExpenseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?android:attr/actionBarItemBackground"
+        android:text="Add Expense"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-        <EditText
-            android:id="@+id/editTextNumberDecimals"
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/bankFilterContainer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:endIconTint="@color/light_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/expenseCategoryFilterSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="$00.0"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:textSize="64sp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:ellipsize="end"
+            android:inputType="none"
+            android:maxLines="1"
+            android:paddingVertical="8dp"
+            android:singleLine="true"
+            android:text="Category"
+            android:textAlignment="viewStart"
+            android:textColor="@color/light_20"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+        android:id="@+id/bankFilterContainer2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:endIconTint="@color/light_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenseDescriptionEditText">
+
+        <AutoCompleteTextView
+            android:id="@+id/expenseWalletFilterSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_card"
-            android:padding="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:ellipsize="end"
+            android:inputType="none"
+            android:maxLines="1"
+            android:paddingVertical="8dp"
+            android:singleLine="true"
+            android:text="Wallet"
+            android:textAlignment="viewStart"
+            android:textColor="@color/light_20"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/expenseDescriptionEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/custom_input"
-                android:ems="10"
-                android:hint="Description"
-                android:inputType="textPersonName"
-                android:textColorHint="@color/light_20"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bankFilterContainer" />
-
-            <Button
-                android:id="@+id/addExpenseButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/custom_button"
-                android:foreground="?android:attr/actionBarItemBackground"
-                android:text="Add Expense"
-                android:textAllCaps="false"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                android:id="@+id/bankFilterContainer"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-                app:endIconTint="@color/light_20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <AutoCompleteTextView
-                    android:id="@+id/expenseCategoryFilterSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:inputType="none"
-                    android:maxLines="1"
-                    android:paddingVertical="8dp"
-                    android:singleLine="true"
-                    android:text="Category"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/light_20"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                android:id="@+id/bankFilterContainer2"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:boxBackgroundColor="@color/white"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:endIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"
-                app:endIconTint="@color/light_20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expenseDescriptionEditText">
-
-                <AutoCompleteTextView
-                    android:id="@+id/expenseWalletFilterSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:inputType="none"
-                    android:maxLines="1"
-                    android:paddingVertical="8dp"
-                    android:singleLine="true"
-                    android:text="Wallet"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/light_20"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:id="@+id/addAttachmentExpense"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/attachment_btn"
-                android:clickable="true"
-                android:foreground="?android:attr/actionBarItemBackground"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:backgroundTint="@null"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bankFilterContainer2">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_baseline_attach_file_24" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add attachment"
-                    android:textColor="@color/light_20"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Repeat"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/addAttachmentExpense"
-                app:layout_constraintTop_toBottomOf="@+id/addAttachmentExpense" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Repeat transaction"
-                android:textColor="@color/light_20"
-                app:layout_constraintStart_toStartOf="@+id/textView22"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-            <Switch
-                android:trackTint="@color/violet_100"
-                android:thumbTint="@color/white"
-                android:backgroundTint="@color/violet_100"
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/textView23"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView22" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/addAttachmentExpense"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/attachment_btn"
+        android:clickable="true"
+        android:foreground="?android:attr/actionBarItemBackground"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankFilterContainer2">
 
         <ImageView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/expenseBackButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_baseline_attach_file_24" />
 
         <TextView
-            android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Expense"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/expenseBackButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/expenseBackButton" />
+            android:text="Add attachment"
+            android:textColor="@color/light_20"
+            android:textSize="18sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Repeat"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/addAttachmentExpense"
+        app:layout_constraintTop_toBottomOf="@+id/addAttachmentExpense" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Repeat transaction"
+        android:textColor="@color/light_20"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <Switch
+        android:trackTint="@color/violet_100"
+        android:thumbTint="@color/white"
+        android:backgroundTint="@color/violet_100"
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView22" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<ImageView
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/expenseBackButton"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:src="@drawable/ic_baseline_keyboard_backspace_24"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="@color/white" />
+
+<TextView
+    android:id="@+id/textView21"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Expense"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="@+id/expenseBackButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/expenseBackButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

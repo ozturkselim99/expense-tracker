@@ -2,15 +2,12 @@ package com.selim.expensetracker.financial.screens
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.selim.expensetracker.R
-import com.selim.expensetracker.activities.FinancialReportActivity
 import com.selim.expensetracker.activities.FinancialReportDetailActivity
 import com.selim.expensetracker.activities.IncomeActivity
 

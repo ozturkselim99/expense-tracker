@@ -1,32 +1,36 @@
 package com.selim.expensetracker.expense_tab.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.selim.expensetracker.R
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.FragmentIncomeTabBinding
+import com.selim.expensetracker.models.Transactions
 
 class IncomeTab : Fragment() {
+
+    private var _binding: FragmentIncomeTabBinding? = null
+    private val binding get() = _binding!!
+    private val adapter = TransactionAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_income_tab, container, false)
+    ): View {
+        _binding = FragmentIncomeTabBinding.inflate(inflater, container, false)
 
-
+        val temp= emptyList<Transactions>()
         val layoutManager = LinearLayoutManager(requireContext())
-        view.findViewById<RecyclerView>(R.id.financialReportIncomeRW).layoutManager = layoutManager
+        binding.financialReportIncomeRW.layoutManager = layoutManager
+        binding.financialReportIncomeRW.adapter = adapter
+        adapter.items=temp
 
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        view.findViewById<RecyclerView>(R.id.financialReportIncomeRW).adapter = adapter
 
-        return view
+        return binding.root
     }
 
 

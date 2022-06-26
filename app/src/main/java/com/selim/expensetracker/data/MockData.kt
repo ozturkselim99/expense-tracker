@@ -8,9 +8,9 @@ import com.selim.expensetracker.models.Transactions
 object MockData {
 
     private val transactionList = arrayListOf(
-        Transactions("Shopping", "Buy some grocery", "10:00 AM", "-120$"),
-        Transactions("Subscription", "Disney+ Annual..", "03:30 PM", "-80$"),
-        Transactions("Food", "Buy a ramen", "07:30 PM", "-30$"),
+        Transactions("1","Shopping", "Buy some grocery", "10:00 AM", "-120$","income","1",""),
+        Transactions("1","Subscription", "Disney+ Annual..", "03:30 PM", "-80$","income","",""),
+        Transactions("1","Food", "Buy a ramen", "07:30 PM", "-30$","income","",""),
     )
     private val months = arrayListOf(
         "All Months","January", "February", "March", "April", "May", "June", "July",

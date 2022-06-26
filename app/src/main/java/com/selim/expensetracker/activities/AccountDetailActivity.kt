@@ -1,62 +1,66 @@
 
 package com.selim.expensetracker.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.ImageView
-import android.widget.Spinner
-import androidx.cardview.widget.CardView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.firestore.core.Transaction
 import com.selim.expensetracker.R
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.ActivityAccountDetailBinding
+import com.selim.expensetracker.models.Transactions
 
 class AccountDetailActivity : AppCompatActivity() {
-    private val transactionsDetailAccount by lazy { findViewById<RecyclerView>(R.id.transactionsDetailAccount) }
-    private val accountDetailBackButton by lazy { findViewById<ImageView>(R.id.accountDetailBackButton) }
-    private val spinnerMonths by lazy { findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner) }
-    private val filterTransaction by lazy{findViewById<CardView>(R.id.filterTransaction)}
+
+    private lateinit var binding: ActivityAccountDetailBinding
     private lateinit var bottomSheetDialog:BottomSheetDialog
+    private val adapter = TransactionAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account_detail)
+        binding = ActivityAccountDetailBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         bottomSheetDialog=BottomSheetDialog(this)
 
         setupBottomSheet()
         setupRecyclerview()
         setupSpinner()
+        initViews()
 
-        filterTransaction.setOnClickListener {
+        //TODO:burayada bak viewbinding için
+        binding.filterTransaction.setOnClickListener {
             bottomSheetDialog.show()
         }
-        accountDetailBackButton.setOnClickListener {
+
+    }
+
+    private fun initViews(){
+        binding.accountDetailBackButton.setOnClickListener {
             onBackPressed()
         }
     }
 
     private fun setupRecyclerview() {
+        val temp= emptyList<Transactions>()
         val layoutManager = LinearLayoutManager(this)
-        transactionsDetailAccount.layoutManager = layoutManager
-
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        transactionsDetailAccount.adapter = adapter
+        binding.transactionsDetailAccount.layoutManager = layoutManager
+        binding.transactionsDetailAccount.adapter=adapter
+        adapter.items=temp
     }
 
     private fun setupSpinner(){
         val spinnerAdapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
-        spinnerMonths.setAdapter(spinnerAdapter)
+        binding.datesFilterSpinner.setAdapter(spinnerAdapter)
     }
 
     private fun setupBottomSheet(){
         val filterBottomModal = layoutInflater.inflate(R.layout.filter_bottom_sheet_modal, null)
         bottomSheetDialog.setContentView(filterBottomModal)
     }
-
 
 }

@@ -14,18 +14,21 @@ import android.provider.MediaStore
 import android.webkit.MimeTypeMap
 import android.widget.ArrayAdapter
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.selim.expensetracker.R
 import com.selim.expensetracker.data.MockData
 import com.selim.expensetracker.databinding.ActivityIncomeBinding
+import com.selim.expensetracker.models.Transactions
+import com.selim.expensetracker.utils.FirebaseUtils
+import com.selim.expensetracker.utils.FirebaseUtils.firebaseFirestore
 import com.selim.expensetracker.utils.FirebaseUtils.storageRef
+import com.selim.expensetracker.utils.showToastShort
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -33,9 +36,10 @@ import java.util.*
 
 
 class IncomeActivity : AppCompatActivity() {
+    //TODO:bottom sheet dialog viewbinding
+    private lateinit var binding: ActivityIncomeBinding
+    private lateinit var currentAccountBalance: String
 
-
-    lateinit var filepath: Uri
     private val CAMERA_PERM_CODE = 101
     private val CAMERA_REQUEST_CODE = 102
     private val GALLERY_REQUEST_CODE = 105
@@ -43,39 +47,110 @@ class IncomeActivity : AppCompatActivity() {
     private var contentUri: Uri? = null
     var currentPhotoPath: String? = null
 
+    private lateinit var incomeCategoryFilterSpinnerAdapter: ArrayAdapter<String>
+    private lateinit var incomeWalletFilterSpinnerAdapter: ArrayAdapter<String>
 
     private var selectedCategory: String? = null
-    private var description: String? = null
     private var selectedBank: String? = null
 
 
-    private var binding: ActivityIncomeBinding? = null
     private val selectedImage by lazy { findViewById<ImageView>(R.id.imageView34) }
 
     private lateinit var dialog: Dialog
     private lateinit var bottomSheetDialog: BottomSheetDialog
+    private var transactions: Transactions? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_income)
+        binding = ActivityIncomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        transactions = intent.getSerializableExtra("IncomeTransaction") as Transactions?
+        incomeCategoryFilterSpinnerAdapter = ArrayAdapter(
+            this,
+            R.layout.support_simple_spinner_dropdown_item,
+            MockData.getCategories()
+        )
+        incomeWalletFilterSpinnerAdapter = ArrayAdapter(
+            this,
+            R.layout.support_simple_spinner_dropdown_item,
+            MockData.getBanks()
+        )
+        getAccountBalance()
 
+
+        transactions?.let {
+            bindTransaction()
+        }
         bottomSheetDialog = BottomSheetDialog(this, R.style.AttachmentBottomSheetDialogTheme)
         dialog = Dialog(this)
 
         setupBottomSheet()
         setupSpinners()
 
-        binding!!.addAttachmentIncome.setOnClickListener {
+        binding.addAttachmentIncome.setOnClickListener {
             bottomSheetDialog.show()
         }
-        binding!!.addIncomeButton.setOnClickListener {
-            addIncomeToFirebase()
+        if(transactions!=null){
+            binding.addIncomeButton.setOnClickListener {
+                updateTransaction()
+            }
         }
-        binding!!.incomeBackButton.setOnClickListener {
+        else{
+            binding.addIncomeButton.setOnClickListener {
+                addIncomeToFirebase()
+            }
+        }
+
+
+
+        binding.incomeBackButton.setOnClickListener {
             onBackPressed()
             finish()
         }
         window.statusBarColor = ContextCompat.getColor(this, R.color.green_100)
+    }
+
+
+
+    private fun bindTransaction() {
+        binding.incomeAmount.setText(transactions?.amount)
+        binding.incomeDescriptionEditText.setText(transactions?.description.toString())
+        bindImage(transactions?.imageUrl)
+        binding.incomeCategoryFilterSpinner.setText(transactions?.title)
+        binding.incomeWalletFilterSpinner.setText(transactions?.selectedBank)
+        binding.addIncomeButton.text = "Update Income"
+    }
+
+    //buradasın
+    private fun updateTransaction(){
+        FirebaseUtils.firebaseAuth.currentUser?.uid?.let {userId->
+            transactions?.transactionId?.let {
+                firebaseFirestore?.collection("Users")?.document(userId)
+                    ?.collection("Transactions")?.document(it)?.update("selectedCategory", binding.incomeCategoryFilterSpinner.text.toString(),
+                        "description", binding.incomeDescriptionEditText.text.toString(),
+                        "amount", binding.incomeAmount.text.toString(),"selectedBank",binding.incomeWalletFilterSpinner.text.toString())
+                    ?.addOnSuccessListener {
+                        showToastShort("Güncelleme başarılı")
+                        val intent=Intent(this,MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }?.addOnFailureListener { exception ->
+                        showToastShort("$exception")
+                    }
+            }
+        }
+    }
+
+    private fun bindImage(url: String?) {
+        if (url != null) {
+            storageRef.child(url).downloadUrl.addOnSuccessListener { Uri ->
+                Glide.with(this)
+                    .load(Uri)
+                    .into(binding.imageView34)
+            }
+        }
     }
 
 
@@ -88,12 +163,6 @@ class IncomeActivity : AppCompatActivity() {
         view.findViewById<CardView>(R.id.camera).setOnClickListener {
             askCameraPermissions()
         }
-    }
-
-    private fun openCam() {
-        val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(camera, CAMERA_REQUEST_CODE)
-
     }
 
     private fun startFileChooser() {
@@ -169,7 +238,7 @@ class IncomeActivity : AppCompatActivity() {
                 //openCam()
                 dispatchTakePictureIntent()
             } else {
-                Toast.makeText(this, "Camera Permission Denied", Toast.LENGTH_SHORT).show()
+                showToastShort("Camera Permission Denied")
             }
         }
     }
@@ -217,12 +286,30 @@ class IncomeActivity : AppCompatActivity() {
 
     private fun uploadImageToFirebase(name: String, contentUri: Uri) {
 
-        var pd = ProgressDialog(this)
+        val pd = ProgressDialog(this)
         pd.setTitle("Uploading")
         pd.show()
-
-        var image = storageRef.child("images/" + name)
+        val formatter = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        val image = storageRef.child("images/$name")
         image.putFile(contentUri).addOnSuccessListener {
+            val incomeData = hashMapOf(
+                "amount" to binding.incomeAmount.text.toString(),
+                "selectedCategory" to selectedCategory,
+                "description" to binding.incomeDescriptionEditText.text.toString(),
+                "selectedBank" to selectedBank,
+                "imageUrl" to "images/${name}",
+                "createdAt" to formatter.format(calendar.time),
+                "transactionType" to "Income"
+            )
+            firebaseFirestore?.collection("Users")
+                ?.document(FirebaseUtils.firebaseAuth.currentUser!!.uid)?.collection("Transactions")
+                ?.add(incomeData)?.addOnSuccessListener {
+                    updateAccountBalance(binding.incomeAmount.text.toString())
+                    showToastShort("Her şey yolunda")
+                }?.addOnFailureListener {
+                    showToastShort("Bir şeyler ters gitti")
+                }
             dialog.setContentView(R.layout.transaction_successfully_dialog)
             dialog.show()
             Handler(Looper.getMainLooper()).postDelayed({
@@ -230,49 +317,63 @@ class IncomeActivity : AppCompatActivity() {
                 onBackPressed()
                 finish()
             }, 1500)
-            Toast.makeText(this, "Image Is Uploaded.", Toast.LENGTH_SHORT).show()
+            showToastShort("Image Is Uploaded.")
         }.addOnFailureListener {
-            Toast.makeText(this, "Upload Failed.", Toast.LENGTH_SHORT).show()
+            showToastShort("Upload Failed")
         }.addOnProgressListener { po ->
-            var progress = (100.00 * po.bytesTransferred)
+            val progress = (100.00 * po.bytesTransferred)
             pd.setMessage("Uploaded ${progress.toInt()}")
         }
     }
 
     private fun setupSpinners() {
-        val incomeCategoryFilterSpinnerAdapter = ArrayAdapter(
-            this,
-            R.layout.support_simple_spinner_dropdown_item,
-            MockData.getCategories()
-        )
-        val incomeWalletFilterSpinnerAdapter = ArrayAdapter(
-            this,
-            R.layout.support_simple_spinner_dropdown_item,
-            MockData.getBanks()
-        )
-        binding!!.incomeCategoryFilterSpinner.setAdapter(incomeCategoryFilterSpinnerAdapter)
-        binding!!.incomeWalletFilterSpinner.setAdapter(incomeWalletFilterSpinnerAdapter)
 
-        binding!!.incomeWalletFilterSpinner
+        binding.incomeCategoryFilterSpinner.setAdapter(incomeCategoryFilterSpinnerAdapter)
+        binding.incomeWalletFilterSpinner.setAdapter(incomeWalletFilterSpinnerAdapter)
+
+        binding.incomeWalletFilterSpinner
             .setOnItemClickListener { _, _, position, _ ->
-                Toast.makeText(
-                    this,
-                    "${incomeWalletFilterSpinnerAdapter.getItem(position).toString()} selected",
-                    Toast.LENGTH_SHORT
-                ).show()
+                showToastShort(
+                    "${
+                        incomeWalletFilterSpinnerAdapter.getItem(position).toString()
+                    } selected"
+                )
                 selectedBank = incomeWalletFilterSpinnerAdapter.getItem(position).toString()
             }
-        binding!!.incomeCategoryFilterSpinner.setOnItemClickListener { _, _, position, _ ->
-            Toast.makeText(
-                this,
-                "${incomeCategoryFilterSpinnerAdapter.getItem(position).toString()} selected",
-                Toast.LENGTH_SHORT
-            ).show()
+        binding.incomeCategoryFilterSpinner.setOnItemClickListener { _, _, position, _ ->
+            showToastShort(
+                "${
+                    incomeCategoryFilterSpinnerAdapter.getItem(position).toString()
+                } selected"
+            )
             selectedCategory = incomeCategoryFilterSpinnerAdapter.getItem(position).toString()
         }
     }
 
     private fun addIncomeToFirebase() {
         uploadImageToFirebase(imageName!!, contentUri!!)
+    }
+    private fun updateAccountBalance(amount:String){
+        val newAccountBalance=currentAccountBalance.toDouble()+amount.toDouble()
+        FirebaseUtils.firebaseAuth.currentUser?.uid?.let {userId->
+            firebaseFirestore?.collection("Users")?.document(userId)?.update("accountBalance", newAccountBalance
+            )?.addOnSuccessListener {
+                showToastShort("Bakiye güncellendi")
+            }?.addOnFailureListener { exception ->
+                showToastShort("$exception")
+            }
+        }
+    }
+    private fun getAccountBalance(){
+        FirebaseUtils.firebaseAuth.currentUser?.uid?.let {
+            firebaseFirestore?.collection("Users")?.document(it)
+                ?.get()
+                ?.addOnSuccessListener { document ->
+                    currentAccountBalance=document.get("accountBalance").toString()
+                }
+                ?.addOnFailureListener { exception ->
+                    showToastShort("$exception")
+                }
+        }
     }
 }

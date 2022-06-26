@@ -14,12 +14,16 @@ import com.selim.expensetracker.chart_tab.ChartTabsViewPagerAdapter
 import com.selim.expensetracker.chart_tab.screens.LineChartTab
 import com.selim.expensetracker.chart_tab.screens.PieChartTab
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.ActivityFinancialReportDetailBinding
 import com.selim.expensetracker.expense_tab.ExpenseTabsViewPagerAdapter
 import com.selim.expensetracker.expense_tab.screens.ExpenseTab
 import com.selim.expensetracker.expense_tab.screens.IncomeTab
 
 
 class FinancialReportDetailActivity : AppCompatActivity() {
+
+    //TODO:viewbinding kaldı
+    private lateinit var binding: ActivityFinancialReportDetailBinding
 
     private val spinnerMonthsFinancialReport by lazy { findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner) }
     private val tabExpenseViewPager by lazy { findViewById<ViewPager2>(R.id.tabExpenseVP) }
@@ -30,7 +34,8 @@ class FinancialReportDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_financial_report_detail)
+        binding = ActivityFinancialReportDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         financialReportBackButton.setOnClickListener {
             onBackPressed()

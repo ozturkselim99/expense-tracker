@@ -3,7 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../.gradle/caches/transforms-3/236778932414393fc80722435392a6d3/transformed/appcompat-1.3.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/drawable/custom_card.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/drawable/custom_input.xml" value="0.24" />
+        <entry key="app/src/main/res/drawable/home.xml" value="0.24" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.1235" />
+        <entry key="app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.24" />
+        <entry key="app/src/main/res/drawable/ic_baseline_insert_drive_file_24.xml" value="0.24" />
+        <entry key="app/src/main/res/layout/account_item_row.xml" value="0.20516304347826086" />
         <entry key="app/src/main/res/layout/activity_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_budget_detail.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/activity_expense.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_income.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/activity_income_detail.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/activity_notification.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/bottom_sheet_modal.xml" value="0.23550724637681159" />
+        <entry key="app/src/main/res/layout/delete_budget_bottom_sheet_modal.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/delete_transaction_bottom_sheet_modal.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/filter_bottom_sheet_modal.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_add_new_account.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/fragment_budget.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/layout/fragment_financial_quote.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_income_report.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/fragment_pie_chart_tab.xml" value="0.192481884057971" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_second_screen.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/fragment_third_screen.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/fragment_verification.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/logout_bottom_sheet_modal.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/logout_successfully_dialog.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/notification_item_row.xml" value="0.20516304347826086" />
+        <entry key="app/src/main/res/layout/transaction_item_row.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/notification_menu.xml" value="0.24375" />
       </map>
     </option>
   </component>

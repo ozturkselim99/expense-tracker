@@ -1,33 +1,37 @@
 package com.selim.expensetracker.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.selim.expensetracker.R
 import com.selim.expensetracker.adapters.AccountsAdapter
-import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.ActivityAccountBinding
 
 class AccountActivity : AppCompatActivity() {
-    private val recyclerViewAccounts by lazy { findViewById<RecyclerView>(R.id.accountsRW) }
-    private val accountBackButton by lazy { findViewById<ImageView>(R.id.accountBackButton) }
+
+    private lateinit var binding:ActivityAccountBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account)
+        binding = ActivityAccountBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupRecyclerview()
+        initViews()
 
-        accountBackButton.setOnClickListener {
+    }
+
+    private fun initViews(){
+        binding.accountBackButton.setOnClickListener {
             onBackPressed()
         }
     }
+
     private fun setupRecyclerview() {
         val layoutManager = LinearLayoutManager(this)
-        recyclerViewAccounts.layoutManager = layoutManager
+        binding.accountsRW.layoutManager = layoutManager
 
         val adapter = AccountsAdapter(MockData.getAccounts())
-        recyclerViewAccounts.adapter = adapter
+        binding.accountsRW.adapter = adapter
     }
 }

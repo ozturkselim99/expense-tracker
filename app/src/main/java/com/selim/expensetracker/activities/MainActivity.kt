@@ -3,28 +3,19 @@ package com.selim.expensetracker.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.View.OnFocusChangeListener
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.selim.expensetracker.R
+import com.selim.expensetracker.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val fabAdd by lazy { findViewById<FloatingActionButton>(R.id.fabAdd) }
-    private val fabExpense by lazy { findViewById<FloatingActionButton>(R.id.fabExpense) }
-    private val fabIncome by lazy { findViewById<FloatingActionButton>(R.id.fabIncome) }
-    private val fabTransfer by lazy { findViewById<FloatingActionButton>(R.id.fabTransfer) }
-    private val homeLayout by lazy { findViewById<ConstraintLayout>(R.id.homeLayout) }
-
+    private lateinit var binding: ActivityMainBinding
     private val rotateOpen: Animation by lazy {
         AnimationUtils.loadAnimation(
             this,
@@ -49,34 +40,34 @@ class MainActivity : AppCompatActivity() {
             R.anim.to_bottom_anim
         )
     }
-
     private var clicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initViews()
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.yellow_20)
-
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment2)
-        bottomNavigationView.setupWithNavController(navController)
-        bottomNavigationView.background = null
-        bottomNavigationView.menu.getItem(2).isEnabled = false
+        binding.bottomNavigationView.setupWithNavController(navController)
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+    }
 
-
-        fabAdd.setOnClickListener {
+    private fun initViews(){
+        binding.fabAdd.setOnClickListener {
             onAddButtonClicked()
         }
-        fabExpense.setOnClickListener {
+        binding.fabExpense.setOnClickListener {
             val intent = Intent(this, ExpenseActivity::class.java)
             startActivity(intent)
         }
-        fabTransfer.setOnClickListener {
+        binding.fabTransfer.setOnClickListener {
             val intent = Intent(this, TransferActivity::class.java)
             startActivity(intent)
         }
-        fabIncome.setOnClickListener {
+        binding.fabIncome.setOnClickListener {
             val intent = Intent(this, IncomeActivity::class.java)
             startActivity(intent)
         }
@@ -91,41 +82,40 @@ class MainActivity : AppCompatActivity() {
 
     private fun setVisibility(clicked: Boolean) {
         if (!clicked) {
-            fabIncome.visibility = View.VISIBLE
-            fabExpense.visibility = View.VISIBLE
-            fabTransfer.visibility = View.VISIBLE
+            binding.fabIncome.visibility = View.VISIBLE
+            binding.fabExpense.visibility = View.VISIBLE
+            binding.fabTransfer.visibility = View.VISIBLE
         } else {
-            fabIncome.visibility = View.INVISIBLE
-            fabExpense.visibility = View.INVISIBLE
-            fabTransfer.visibility = View.INVISIBLE
+            binding.fabIncome.visibility = View.INVISIBLE
+            binding.fabExpense.visibility = View.INVISIBLE
+            binding.fabTransfer.visibility = View.INVISIBLE
         }
 
     }
 
     private fun setAnimation(clicked: Boolean) {
         if (!clicked) {
-            fabIncome.startAnimation(fromBottom)
-            fabExpense.startAnimation(fromBottom)
-            fabTransfer.startAnimation(fromBottom)
-            fabAdd.startAnimation(rotateOpen)
+            binding.fabIncome.startAnimation(fromBottom)
+            binding.fabExpense.startAnimation(fromBottom)
+            binding.fabTransfer.startAnimation(fromBottom)
+            binding.fabAdd.startAnimation(rotateOpen)
         } else {
-            fabIncome.startAnimation(toBottom)
-            fabExpense.startAnimation(toBottom)
-            fabTransfer.startAnimation(toBottom)
-            fabAdd.startAnimation(rotateClose)
+            binding.fabIncome.startAnimation(toBottom)
+            binding.fabExpense.startAnimation(toBottom)
+            binding.fabTransfer.startAnimation(toBottom)
+            binding.fabAdd.startAnimation(rotateClose)
         }
     }
 
     private fun setClickable(clicked: Boolean) {
         if (!clicked) {
-            fabIncome.isClickable = true
-            fabExpense.isClickable = true
-            fabTransfer.isClickable = true
+            binding.fabIncome.isClickable = true
+            binding.fabExpense.isClickable = true
+            binding.fabTransfer.isClickable = true
         } else {
-            fabIncome.isClickable = false
-            fabExpense.isClickable = false
-            fabTransfer.isClickable = false
+            binding.fabIncome.isClickable = false
+            binding.fabExpense.isClickable = false
+            binding.fabTransfer.isClickable = false
         }
     }
-
 }

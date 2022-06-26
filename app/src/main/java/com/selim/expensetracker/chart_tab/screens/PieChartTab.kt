@@ -1,33 +1,35 @@
 package com.selim.expensetracker.chart_tab.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.selim.expensetracker.R
-import org.eazegraph.lib.charts.PieChart
+import com.selim.expensetracker.databinding.FragmentPieChartTabBinding
 import org.eazegraph.lib.models.PieModel
 
 
 class PieChartTab : Fragment() {
 
+    private var _binding: FragmentPieChartTabBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_pie_chart_tab, container, false)
-        var pieChart = view.findViewById<PieChart>(R.id.pieChart)
+        _binding = FragmentPieChartTabBinding.inflate(inflater, container, false)
 
-        pieChart.addPieSlice(
+        binding.pieChart.addPieSlice(
             PieModel(
                 "Shopping",
                 120f,
                 ContextCompat.getColor(requireContext(), R.color.black)
             )
         )
-        pieChart.addPieSlice(
+        binding.pieChart.addPieSlice(
             PieModel(
                 "Subcription", 80f, ContextCompat.getColor(
                     requireContext(),
@@ -35,15 +37,15 @@ class PieChartTab : Fragment() {
                 )
             )
         )
-        pieChart.addPieSlice(
+        binding.pieChart.addPieSlice(
             PieModel(
                 "Food",
                 32f,
                 ContextCompat.getColor(requireContext(), R.color.red_100)
             )
         )
-        pieChart.startAnimation()
-        return view
+        binding.pieChart.startAnimation()
+        return binding.root
     }
 
 }

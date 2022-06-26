@@ -2,69 +2,71 @@ package com.selim.expensetracker.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.Button
-import android.widget.Spinner
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.selim.expensetracker.R
 import com.selim.expensetracker.activities.FinancialReportActivity
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.FragmentTransactionsBinding
 import com.selim.expensetracker.models.Transactions
 
 class TransactionsFragment : Fragment() {
 
+    private var _binding: FragmentTransactionsBinding? = null
+    private val binding get() = _binding!!
+    private val adapter = TransactionAdapter()
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
-        val view = inflater.inflate(R.layout.fragment_transactions, container, false)
+        _binding = FragmentTransactionsBinding.inflate(inflater, container, false)
 
-        val filterTransaction = view.findViewById<CardView>(R.id.filterTransaction)
-        val seeFinancialReport = view.findViewById<ConstraintLayout>(R.id.seeFinancialReport)
-
-        val bottomSheetDialog = BottomSheetDialog(requireContext(),R.style.FilterBottomSheetDialogTheme)
+        val bottomSheetDialog =
+            BottomSheetDialog(requireContext(), R.style.FilterBottomSheetDialogTheme)
         val filterBottomModal = layoutInflater.inflate(R.layout.filter_bottom_sheet_modal, null)
         bottomSheetDialog.setContentView(filterBottomModal)
 
-        filterTransaction.setOnClickListener {
+        //TODO:yine aynı viewbinding muhabbeti
+        binding.filterTransaction.setOnClickListener {
             bottomSheetDialog.show()
         }
         filterBottomModal.findViewById<Button>(R.id.filterTransactionApply).setOnClickListener {
             bottomSheetDialog.dismiss()
         }
-        seeFinancialReport.setOnClickListener {
+        binding.seeFinancialReport.setOnClickListener {
             val intent = Intent(requireContext(), FinancialReportActivity::class.java)
             startActivity(intent)
         }
-        setupRecyclerview(view)
-        setupSpinner(view)
+        setupRecyclerview()
+        setupSpinner()
 
-        return view
+        return binding.root
     }
-    private fun setupRecyclerview(view:View) {
+
+    private fun setupRecyclerview() {
+        val temp= emptyList<Transactions>()
         val layoutManager = LinearLayoutManager(requireContext())
-        view.findViewById<RecyclerView>(R.id.transactions).layoutManager = layoutManager
-
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        view.findViewById<RecyclerView>(R.id.transactions).adapter = adapter
+        binding.transactions.layoutManager = layoutManager
+        binding.transactions.adapter = adapter
+        adapter.items=temp
     }
 
-    private fun setupSpinner(view:View){
-        val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, MockData.getMonths())
-        view.findViewById<AutoCompleteTextView>(R.id.datesFilterSpinner).setAdapter(spinnerAdapter)
+    private fun setupSpinner() {
+        val spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.support_simple_spinner_dropdown_item,
+            MockData.getMonths()
+        )
+        binding.datesFilterSpinner.setAdapter(spinnerAdapter)
     }
-
 
 }

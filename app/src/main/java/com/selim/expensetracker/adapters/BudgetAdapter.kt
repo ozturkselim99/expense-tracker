@@ -9,9 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.selim.expensetracker.R
 import com.selim.expensetracker.activities.BudgetDetailActivity
-import com.selim.expensetracker.activities.TransferDetailActivity
 import com.selim.expensetracker.models.Budget
-import com.selim.expensetracker.models.Transactions
 
 class BudgetAdapter(val budgetList: ArrayList<Budget>) : RecyclerView.Adapter<BudgetAdapter.BudgetVH>() {
 

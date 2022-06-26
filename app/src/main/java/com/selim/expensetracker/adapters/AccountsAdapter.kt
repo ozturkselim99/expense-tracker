@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.selim.expensetracker.R
 import com.selim.expensetracker.activities.AccountDetailActivity
-import com.selim.expensetracker.activities.BudgetDetailActivity
 import com.selim.expensetracker.models.Account
-import com.selim.expensetracker.models.Budget
 
 class AccountsAdapter(val accountsList: ArrayList<Account>) : RecyclerView.Adapter<AccountsAdapter.AccountsVH>() {
 

@@ -1,27 +1,27 @@
 package com.selim.expensetracker.activities
 
 import android.app.Dialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Button
-import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.selim.expensetracker.R
+import com.selim.expensetracker.databinding.ActivityCreateBudgetBinding
 
 class CreateBudgetActivity : AppCompatActivity() {
-    private val createBudgetBackButton by lazy { findViewById<ImageView>(R.id.createBudgetBackButton) }
-    private val addBudget by lazy { findViewById<Button>(R.id.addBudget) }
+
+    private lateinit var binding: ActivityCreateBudgetBinding
     private lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_budget)
+        binding = ActivityCreateBudgetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         dialog= Dialog(this)
 
-        createBudgetBackButton.setOnClickListener {
+        binding.createBudgetBackButton.setOnClickListener {
             onBackPressed()
         }
-        addBudget.setOnClickListener {
+        binding.addBudget.setOnClickListener {
             dialog.setContentView(R.layout.transaction_successfully_dialog)
             dialog.show()
             Handler(Looper.getMainLooper()).postDelayed({

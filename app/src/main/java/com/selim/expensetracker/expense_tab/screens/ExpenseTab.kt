@@ -1,38 +1,34 @@
 package com.selim.expensetracker.expense_tab.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.selim.expensetracker.R
 import com.selim.expensetracker.adapters.TransactionAdapter
 import com.selim.expensetracker.data.MockData
+import com.selim.expensetracker.databinding.FragmentExpenseTabBinding
+import com.selim.expensetracker.models.Transactions
 
 class ExpenseTab : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
+    private var _binding: FragmentExpenseTabBinding? = null
+    private val binding get() = _binding!!
+    private val adapter = TransactionAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        _binding = FragmentExpenseTabBinding.inflate(inflater, container, false)
 
-        val view= inflater.inflate(R.layout.fragment_expense_tab, container, false)
-
-        val financialReportExpenseRW = view.findViewById<RecyclerView>(R.id.financialReportExpenseRW)
-
+        val temp= emptyList<Transactions>()
         val layoutManager = LinearLayoutManager(requireContext())
-        financialReportExpenseRW.layoutManager = layoutManager
+        binding.financialReportExpenseRW.layoutManager = layoutManager
+        binding.financialReportExpenseRW.adapter = adapter
+        adapter.items=temp
 
-        val adapter = TransactionAdapter(MockData.getTransactions())
-        financialReportExpenseRW.adapter = adapter
-
-        return  view
+        return  binding.root
     }
 
 }

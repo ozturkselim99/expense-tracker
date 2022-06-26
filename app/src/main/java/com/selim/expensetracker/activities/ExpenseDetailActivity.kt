@@ -1,19 +1,22 @@
 package com.selim.expensetracker.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.selim.expensetracker.R
+import com.selim.expensetracker.databinding.ActivityExpenseDetailBinding
 
 class ExpenseDetailActivity : AppCompatActivity() {
-    private val expenseTransactionDetailBackButton by lazy { findViewById<ImageView>(R.id.expenseTransactionDetailBackButton) }
+    private lateinit var binding: ActivityExpenseDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_expense_detail)
-       window.statusBarColor = ContextCompat.getColor(this, R.color.red_100)
-        expenseTransactionDetailBackButton.setOnClickListener {
+        binding = ActivityExpenseDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.red_100)
+    }
+
+    private fun initViews() {
+        binding.expenseTransactionDetailBackButton.setOnClickListener {
             onBackPressed()
         }
     }

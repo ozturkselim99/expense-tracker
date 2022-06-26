@@ -1,5 +1,6 @@
 package com.selim.expensetracker.fragments
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -22,33 +23,32 @@ import com.selim.expensetracker.utils.FirebaseUtils.firebaseAuth
 
 class ProfileFragment : Fragment() {
 
-    private var binding: FragmentProfileBinding? = null
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
 
+    @SuppressLint("InflateParams")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
-        binding!!.lifecycleOwner = this
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
         val bottomSheetDialog = BottomSheetDialog(requireContext())
         val bottomSheetDialogView = layoutInflater.inflate(R.layout.logout_bottom_sheet_modal, null)
         bottomSheetDialog.setContentView(bottomSheetDialogView)
-        var dialog = Dialog(requireContext())
+        val dialog = Dialog(requireContext())
         getAccountName()
-        binding!!.account.setOnClickListener {
+        binding.account.setOnClickListener {
             val intent = Intent(requireContext(), AccountActivity::class.java)
             startActivity(intent)
         }
-
-        binding!!.logout.setOnClickListener {
+        binding.logout.setOnClickListener {
             bottomSheetDialog.show()
         }
+        initViews()
+        //TODO:Bottom Sheet içinde view binding nasıl kullanılır bak
 
-        binding!!.exportData.setOnClickListener {
-            val intent = Intent(requireContext(), ExportDataActivity::class.java)
-            startActivity(intent)
-        }
         bottomSheetDialogView.findViewById<Button>(R.id.logoutNoButton).setOnClickListener {
             bottomSheetDialog.dismiss()
         }
@@ -61,18 +61,27 @@ class ProfileFragment : Fragment() {
                 logout()
             }, 1500)
         }
-        return binding!!.root
+        return binding.root
     }
 
     private fun logout() {
         firebaseAuth.signOut()
     }
+
+    private fun initViews(){
+
+        binding.exportData.setOnClickListener {
+            val intent = Intent(requireContext(), ExportDataActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun getAccountName() {
         firebaseAuth.currentUser?.uid?.let {
             FirebaseUtils.firebaseFirestore?.collection("Users")?.document(it)
                 ?.get()
                 ?.addOnSuccessListener { document ->
-                    binding!!.accountName.text = document.get("accountName").toString()
+                    binding.accountName.text = document.get("accountName").toString()
                 }
                 ?.addOnFailureListener { exception ->
                     Toast.makeText(
